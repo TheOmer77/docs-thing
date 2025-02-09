@@ -2,7 +2,9 @@ import {
   Children,
   type ComponentProps,
   type PropsWithChildren,
+  useEffect,
   useMemo,
+  useState,
 } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 
@@ -16,12 +18,13 @@ import {
 type TabsProps = PropsWithChildren<{
   items: string[];
   defaultIndex?: number;
+  id?: string;
 }>;
 type TabProps = PropsWithChildren<
   Pick<ComponentProps<typeof TabsContent>, 'value'>
 >;
 
-export const Tabs = ({ items, defaultIndex = 0, children }: TabsProps) => {
+export const Tabs = ({ items, defaultIndex = 0, id, children }: TabsProps) => {
   const uniqueItems = useMemo(() => [...new Set(items)], [items]);
   const childComponents = useMemo(
     () =>
@@ -37,8 +40,38 @@ export const Tabs = ({ items, defaultIndex = 0, children }: TabsProps) => {
     [children, uniqueItems.length]
   );
 
+  const [value, setValue] = useState<string | undefined>(undefined);
+
+  const handleValueChange = (value: string) => {
+    setValue(value);
+
+    if (!id) return;
+    window.localStorage.setItem(id, value);
+    window.dispatchEvent(new StorageEvent('storage', { key: id }));
+  };
+
+  // Also avoids hydration error
+  useEffect(() => {
+    if (!id) return;
+
+    const initialStorageValue = window.localStorage.getItem(id);
+    if (initialStorageValue) setValue(initialStorageValue);
+
+    const storageListener = () => {
+      const storageValue = window.localStorage.getItem(id);
+      if (storageValue && uniqueItems.includes(storageValue))
+        setValue(storageValue);
+    };
+    addEventListener('storage', storageListener);
+    return () => removeEventListener('storage', storageListener);
+  }, [id, uniqueItems]);
+
   return (
-    <TabsRoot defaultValue={uniqueItems[defaultIndex]}>
+    <TabsRoot
+      value={value}
+      defaultValue={uniqueItems[defaultIndex]}
+      onValueChange={handleValueChange}
+    >
       <TabsList>
         {uniqueItems.map(item => (
           <TabsTrigger key={item} value={item}>
@@ -47,7 +80,7 @@ export const Tabs = ({ items, defaultIndex = 0, children }: TabsProps) => {
         ))}
       </TabsList>
       {childComponents.map((child, idx) => (
-        //@ts-expect-error Child will probably be Tab, otherwise value could
+        //@ts-expect-error Child will probably be a Tab, otherwise value could
         // be passed to DOM element
         <Slot key={uniqueItems[idx]} value={uniqueItems[idx]}>
           {child}
