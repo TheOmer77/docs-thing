@@ -129,3 +129,110 @@ There isn't really a third thing to do, I just felt like having three steps here
 
 </Steps>
 ```
+
+## Tabs
+
+The `Tabs` component allows you to organize content into multiple tabs, displaying the content of one tab at a time.
+
+<Tabs items={['Hello', 'World']}>
+  <Tab>**Hello!**</Tab>
+  <Tab>**World!**</Tab>
+</Tabs>
+
+```mdx
+<Tabs items={['Hello', 'World']}>
+  <Tab>**Hello!**</Tab>
+  <Tab>**World!**</Tab>
+</Tabs>
+```
+
+### Default selected tab
+
+By default the first tab will be selected, however this can be changed using an optional `defaultIndex` prop.
+
+```mdx
+<Tabs items={['Hello', 'World']} defaultIndex={1}>
+  <Tab>**Hello!**</Tab>
+  <Tab>**World!**</Tab>
+</Tabs>
+```
+
+### Shared value
+
+You can also add an `id` prop to your tabs - this will allow storing the selected tab's value in `localStorage`, which would persist across page reloads.
+
+{/* prettier-ignore */}
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn dlx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm dlx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bunx --bun shadcn@latest init
+    ```
+  </Tab>
+</Tabs>
+
+If multiple `Tabs` components with the same `id` exist on the same page, they will sync with each other!
+
+{/* prettier-ignore */}
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npm install react-transition-switch
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn add react-transition-switch
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm add react-transition-switch
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bun add react-transition-switch
+    ```
+  </Tab>
+</Tabs>
+
+{/* prettier-ignore */}
+````mdx
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn dlx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm dlx shadcn@latest init
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bunx --bun shadcn@latest init
+    ```
+  </Tab>
+</Tabs>
+````

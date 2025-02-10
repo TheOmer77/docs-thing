@@ -11,6 +11,7 @@ import { MdxBlockquote } from './blockquote';
 import { CodeBlock } from './code-block';
 import { h1, h2, h3, h4 } from './heading';
 import { Steps } from './steps';
+import { Tab, Tabs } from './tabs';
 
 export const mdxComponents = {
   h1,
@@ -21,6 +22,8 @@ export const mdxComponents = {
   blockquote: MdxBlockquote,
   pre: CodeBlock,
   Steps,
+  Tabs,
+  Tab,
 };
 
 export type MDXProps = { doc: Doc };
