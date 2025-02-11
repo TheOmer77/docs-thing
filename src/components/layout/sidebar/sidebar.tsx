@@ -1,7 +1,11 @@
 import { Fragment, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Collapsible } from '@/components/ui/collapsible';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { Drawer, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { List, ListSubheader } from '@/components/ui/list';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -55,17 +59,16 @@ const ListCategories = () => {
               );
 
             return (
-              <Fragment key={doc._id}>
-                <SidebarItem
-                  doc={doc}
-                  active={isActive}
-                  childActive={isChildActive}
-                />
+              <Collapsible open={isActive || isChildActive} key={doc._id}>
+                <CollapsibleTrigger asChild>
+                  <SidebarItem
+                    doc={doc}
+                    active={isActive}
+                    childActive={isChildActive}
+                  />
+                </CollapsibleTrigger>
                 {children.length > 0 && (
-                  <Collapsible
-                    open={isActive || isChildActive}
-                    className='flex w-full flex-col gap-px ps-4'
-                  >
+                  <CollapsibleContent className='flex w-full flex-col gap-px ps-4'>
                     {children.map(childDoc => (
                       <SidebarItem
                         key={childDoc._id}
@@ -73,9 +76,9 @@ const ListCategories = () => {
                         active={childDoc.url === pathname}
                       />
                     ))}
-                  </Collapsible>
+                  </CollapsibleContent>
                 )}
-              </Fragment>
+              </Collapsible>
             );
           })}
         </Fragment>
