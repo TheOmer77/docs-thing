@@ -8,7 +8,11 @@ import {
 import { CheckIcon, CopyIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { cn } from '@/lib/cn';
 
 type CopyCodeButtonProps = {
@@ -33,16 +37,19 @@ const CopyCodeButton = ({ codeRef, className }: CopyCodeButtonProps) => {
 
   if (!isClient || !window?.isSecureContext) return null;
   return (
-    <Tooltip content='Copy code'>
-      <Button
-        icon
-        variant='flat'
-        size='sm'
-        className={cn('text-muted-foreground print:hidden', className)}
-        onClick={handleCopy}
-      >
-        {justCopied ? <CheckIcon /> : <CopyIcon />}
-      </Button>
+    <Tooltip>
+      <TooltipTrigger>
+        <Button
+          icon
+          variant='flat'
+          size='sm'
+          className={cn('text-muted-foreground print:hidden', className)}
+          onClick={handleCopy}
+        >
+          {justCopied ? <CheckIcon /> : <CopyIcon />}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Copy code</TooltipContent>
     </Tooltip>
   );
 };
