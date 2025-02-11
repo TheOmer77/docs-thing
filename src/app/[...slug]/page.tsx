@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
-import { MDX } from '@/components/layout/mdx';
 import { Toc } from '@/components/layout/toc';
+import { MDX } from '@/components/mdx';
 import { allDocs } from '@/constants/docs';
 
 export const generateStaticParams = async () =>
