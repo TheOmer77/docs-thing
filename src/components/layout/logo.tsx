@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 import { cn } from '@/lib/cn';
 import { config } from '@/constants/docs';
 
-import { SidebarLink } from '../sidebar/sidebar-link';
+import { SidebarLink } from './sidebar/sidebar-link';
 
 export const Logo = ({
   className,
