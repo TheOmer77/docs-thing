@@ -38,7 +38,7 @@ const CopyCodeButton = ({ codeRef, className }: CopyCodeButtonProps) => {
   if (!isClient || !window?.isSecureContext) return null;
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           icon
           variant='flat'

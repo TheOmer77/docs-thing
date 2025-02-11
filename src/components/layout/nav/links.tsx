@@ -35,7 +35,7 @@ export const NavLink = ({
     ];
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           asChild
           variant='flat'

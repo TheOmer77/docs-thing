@@ -16,7 +16,7 @@ export const SearchButton = ({
 }: Pick<ComponentPropsWithoutRef<'button'>, 'onClick' | 'disabled'>) => (
   <>
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           variant='flat'
           size='lg'

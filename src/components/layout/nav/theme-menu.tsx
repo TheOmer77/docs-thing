@@ -34,7 +34,7 @@ export const ThemeMenu = () => {
   return (
     <DropdownMenu>
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger asChild>
           <DropdownMenuTrigger asChild disabled={!isClient}>
             <Button variant='flat' size='lg' icon className='md:size-10'>
               <SunIcon className='rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0' />
