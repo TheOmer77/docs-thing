@@ -1,6 +1,6 @@
 'use client';
 
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentProps } from 'react';
 import { Content } from '@radix-ui/react-collapsible';
 
 import { cn } from '@/lib/cn';
@@ -11,7 +11,7 @@ export const CollapsibleContent = ({
   className,
   children,
   ...props
-}: ComponentPropsWithRef<typeof Content>) => (
+}: ComponentProps<typeof Content>) => (
   <Content
     {...props}
     className={cn(

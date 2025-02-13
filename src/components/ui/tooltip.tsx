@@ -1,6 +1,6 @@
 'use client';
 
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentProps } from 'react';
 import { Content } from '@radix-ui/react-tooltip';
 
 import { cn } from '@/lib/cn';
@@ -14,14 +14,14 @@ export {
 const SIDE_OFFSET = 4;
 
 export type TooltipContentProps = Omit<
-  ComponentPropsWithRef<typeof Content>,
+  ComponentProps<typeof Content>,
   'sideOffset'
 >;
 
 export const TooltipContent = ({
   className,
   ...props
-}: ComponentPropsWithRef<typeof Content>) => (
+}: ComponentProps<typeof Content>) => (
   <Content
     {...props}
     className={cn(
