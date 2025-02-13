@@ -1,15 +1,15 @@
-import { type ComponentPropsWithoutRef, forwardRef } from 'react';
+import { type ComponentProps } from 'react';
 import { SearchIcon } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 
-export const SearchBoxButton = forwardRef<
-  HTMLButtonElement,
-  ComponentPropsWithoutRef<'button'>
->(({ disabled, className, ...props }, ref) => (
+export const SearchBoxButton = ({
+  disabled,
+  className,
+  ...props
+}: ComponentProps<'button'>) => (
   <button
     {...props}
-    ref={ref}
     disabled={disabled}
     className={cn(
       'group me-2 flex h-9 w-64 select-none flex-row items-center justify-start gap-2 rounded-lg bg-card px-3 text-start text-sm text-muted-foreground ring-offset-background transition-colors duration-200 state-layer hover:state-layer-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:state-layer-muted/30 active:bg-accent active:duration-0 disabled:pointer-events-none disabled:opacity-50 [&>*]:z-10 [&>svg]:text-base',
@@ -30,5 +30,4 @@ export const SearchBoxButton = forwardRef<
       )}
     </kbd>
   </button>
-));
-SearchBoxButton.displayName = 'SearchBoxButton';
+);

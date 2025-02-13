@@ -1,19 +1,14 @@
-import {
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  forwardRef,
-} from 'react';
+import { type ComponentProps } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 
-export const SearchCommand = forwardRef<
-  ElementRef<typeof CommandRoot>,
-  ComponentPropsWithoutRef<typeof CommandRoot>
->(({ children, ...props }, ref) => (
+export const SearchCommand = ({
+  children,
+  ...props
+}: ComponentProps<typeof CommandRoot>) => (
   <CommandRoot
-    ref={ref}
     className='flex size-full flex-col overflow-hidden rounded-lg'
     {...props}
   >
@@ -22,7 +17,6 @@ export const SearchCommand = forwardRef<
       <CommandInput
         placeholder='Search docs...'
         className='flex h-12 w-full rounded-lg bg-transparent px-3 ps-10 text-base text-foreground outline-none placeholder:text-muted-foreground md:h-11 md:text-sm'
-        {...props}
       />
     </div>
     <ScrollArea className='max-h-80 overflow-y-auto overflow-x-hidden [direction:inherit]'>
@@ -34,5 +28,4 @@ export const SearchCommand = forwardRef<
       </CommandList>
     </ScrollArea>
   </CommandRoot>
-));
-SearchCommand.displayName = 'Command';
+);

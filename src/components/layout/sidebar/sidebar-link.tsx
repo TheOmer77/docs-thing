@@ -1,7 +1,6 @@
 import {
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  forwardRef,
+  type ComponentProps,
+  type ComponentRef,
   type MouseEventHandler,
   Suspense,
 } from 'react';
@@ -9,14 +8,15 @@ import { useRouter } from 'next/navigation';
 
 import { useModal } from '@/hooks/use-modal';
 
-const SidebarLinkContent = forwardRef<
-  ElementRef<'a'>,
-  ComponentPropsWithoutRef<'a'>
->(({ href, children, ...props }, ref) => {
+const SidebarLinkContent = ({
+  href,
+  children,
+  ...props
+}: ComponentProps<'a'>) => {
   const router = useRouter();
   const { currentModal, openModal } = useModal();
 
-  const handleClick: MouseEventHandler<ElementRef<'a'>> = e => {
+  const handleClick: MouseEventHandler<ComponentRef<'a'>> = e => {
     if (!e.currentTarget) return;
     const pathname = e.currentTarget.pathname;
     e.preventDefault();
@@ -30,27 +30,26 @@ const SidebarLinkContent = forwardRef<
   };
 
   return (
-    <a {...props} ref={ref} href={href} onClick={handleClick}>
+    <a {...props} href={href} onClick={handleClick}>
       {children}
     </a>
   );
-});
-SidebarLinkContent.displayName = 'SidebarLinkContent';
+};
 
-export const SidebarLink = forwardRef<
-  ElementRef<'a'>,
-  ComponentPropsWithoutRef<'a'>
->(({ href, children, ...props }, ref) => (
+export const SidebarLink = ({
+  href,
+  children,
+  ...props
+}: ComponentProps<'a'>) => (
   <Suspense
     fallback={
-      <a {...props} ref={ref} href={href}>
+      <a {...props} href={href}>
         {children}
       </a>
     }
   >
-    <SidebarLinkContent {...props} ref={ref} href={href}>
+    <SidebarLinkContent {...props} href={href}>
       {children}
     </SidebarLinkContent>
   </Suspense>
-));
-SidebarLink.displayName = 'SidebarLink';
+);
