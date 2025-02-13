@@ -1,6 +1,6 @@
 'use client';
 
-import { type ComponentPropsWithRef } from 'react';
+import type { ComponentPropsWithRef } from 'react';
 import { Content } from '@radix-ui/react-collapsible';
 
 import { cn } from '@/lib/cn';

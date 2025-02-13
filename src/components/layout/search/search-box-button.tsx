@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { SearchIcon } from 'lucide-react';
 
 import { cn } from '@/lib/cn';

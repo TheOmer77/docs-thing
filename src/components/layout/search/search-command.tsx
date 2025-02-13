@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { CommandEmpty, CommandInput, CommandList, CommandRoot } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
 
