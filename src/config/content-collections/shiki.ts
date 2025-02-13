@@ -1,4 +1,4 @@
-import { type Options } from '@content-collections/mdx';
+import type { Options } from '@content-collections/mdx';
 import rehypeShikiFromHighlighter, {
   type RehypeShikiCoreOptions,
 } from '@shikijs/rehype/core';

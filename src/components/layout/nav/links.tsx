@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { LinkIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { cn } from '@/lib/cn';
 import { config } from '@/constants/docs';
 
@@ -30,18 +34,21 @@ export const NavLink = ({
       type in LINK_ICONS ? (type as keyof typeof LINK_ICONS) : 'DEFAULT'
     ];
   return (
-    <Tooltip content={label}>
-      <Button
-        asChild
-        variant='flat'
-        size='lg'
-        icon
-        className={cn('md:size-10', className)}
-      >
-        <Link {...props} href={href as string}>
-          {icon}
-        </Link>
-      </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          asChild
+          variant='flat'
+          size='lg'
+          icon
+          className={cn('md:size-10', className)}
+        >
+          <Link {...props} href={href as string}>
+            {icon}
+          </Link>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
 };
