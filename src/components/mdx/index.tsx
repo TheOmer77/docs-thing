@@ -8,6 +8,7 @@ import { cn } from '@/lib/cn';
 import type { Doc } from '@/types/docs';
 
 import { MdxBlockquote } from './blockquote';
+import { Card, Cards } from './cards';
 import { CodeBlock } from './code-block';
 import { h1, h2, h3, h4 } from './heading';
 import { Steps } from './steps';
@@ -21,6 +22,8 @@ export const mdxComponents = {
   a: Link,
   blockquote: MdxBlockquote,
   pre: CodeBlock,
+  Cards,
+  Card,
   Steps,
   Tabs,
   Tab,
