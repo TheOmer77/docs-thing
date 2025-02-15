@@ -106,6 +106,13 @@ const Counter = () => {
 
 You can also add a title to a code block, such as a file name.
 
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
+
 ````mdx
 ```ts title="lib/utils.ts"
 import { type ClassValue, clsx } from 'clsx';
@@ -114,15 +121,6 @@ import { twMerge } from 'tailwind-merge';
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 ```
 ````
-
-This would render:
-
-```ts title="lib/utils.ts"
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
-```
 
 ## Steps
 
