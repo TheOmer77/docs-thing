@@ -17,6 +17,8 @@ export const doc = defineCollection({
   schema: z => ({
     /** Title of this page. */
     title: z.optional(z.string()),
+    /** Short description of this page, will appear below the title. */
+    description: z.optional(z.string()),
     /** ID of the category this page belongs to. */
     category: z.optional(z.string()),
     /** Whether or not to show the page's title at its top. */
