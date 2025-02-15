@@ -9,47 +9,45 @@ The following components are available out of the box for use in MDX pages:
 
 Alerts are an extension of the blockquote syntax that you can use to emphasize critical information, working similarly to [how they do on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts). To turn a blockquote into an alert, simply start it with the correct prefix for the type you want.
 
-### Types
+### Info alerts
 
-#### Info
+For info alerts, use the `[!INFO]` prefix.
 
-For info alerts, use the `[!INFO]` prefix:
+> [!INFO]
+> This is an alert with some info.
+
+> [!INFO] Note
+>
+> There should be some important info here. Unfortunately, I couldn't come up with any.
 
 ```md
 > [!INFO]
 > This is an alert with some info.
 
-> [!INFO] **Note**
+> [!INFO] Note
 >
 > There should be some important info here. Unfortunately, I couldn't come up with any.
 ```
 
-> [!INFO]
-> This is an alert with some info.
+### Danger alerts
 
-> [!INFO] **Note**
+For danger alerts, use the `[!DANGER]` prefix.
+
+> [!DANGER]
+> This is an alert with a warning or negative message.
+
+> [!DANGER] Warning!
 >
-> There should be some important info here. Unfortunately, I couldn't come up with any.
-
-#### Danger
-
-For danger alerts, use the `[!DANGER]` prefix:
+> This is the most dangerous alert you have ever seen. But not really.
 
 ```md
 > [!DANGER]
 > This is an alert with a warning or negative message.
 
-> [!DANGER] **Warning!**
+> [!DANGER] Warning!
 >
 > This is the most dangerous alert you have ever seen. But not really.
 ```
-
-> [!DANGER]
-> This is an alert with a warning or negative message.
-
-> [!DANGER] **Warning!**
->
-> This is the most dangerous alert you have ever seen. But not really.
 
 ## Cards
 
