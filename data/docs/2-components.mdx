@@ -51,6 +51,38 @@ For danger alerts, use the `[!DANGER]` prefix:
 >
 > This is the most dangerous alert you have ever seen. But not really.
 
+## Cards
+
+Cards can be used as links to other pages, organized in a grid. Each card includes a title and an optional description.
+
+<Cards>
+  <Card
+    title='Markdown test'
+    description='Just some random text to test markdown features.'
+    href='/sample/markdown-test'
+  />
+  <Card
+    title='MDX test'
+    description='Same as markdown test but specifically for testing MDX components.'
+    href='/sample/mdx-test'
+  />
+</Cards>
+
+```mdx
+<Cards>
+  <Card
+    title='Markdown test'
+    description='Just some random text to test markdown features.'
+    href='/sample/markdown-test'
+  />
+  <Card
+    title='MDX test'
+    description='Same as markdown test but specifically for testing MDX components.'
+    href='/sample/mdx-test'
+  />
+</Cards>
+```
+
 ## Code blocks
 
 Code blocks allow you to display code snippets with syntax highlighting, using [Shiki](https://shiki.style/). Each code block also includes a copy button to copy to code within it to the clipboard.

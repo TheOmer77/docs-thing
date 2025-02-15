@@ -9,8 +9,20 @@ showToc: false
   Testing page nesting.
 </h1>
 
-<div className='text-center'>
-  [Nested page 1](/sample/nesting-test/nested1) | [Nested page
-  2](/sample/nesting-test/nested2) | [Nested page
-  3](/sample/nesting-test/nested3)
-</div>
+<Cards>
+  <Card
+    title='Nested page 1'
+    description='The blue one!'
+    href='/sample/nesting-test/nested1'
+  />
+  <Card
+    title='Nested page 2'
+    description='The red one?'
+    href='/sample/nesting-test/nested2'
+  />
+  <Card
+    title='Nested page 3'
+    description='The gray one...'
+    href='/sample/nesting-test/nested3'
+  />
+</Cards>
