@@ -1,0 +1,27 @@
+---
+title: Page metadata
+description: Some properties for your pages.
+category: usage
+---
+
+Each page can have some frontmatter metadata at the top, which includes information about the page. The following properties can be included:
+
+- `title` - The title of the page. **Docs without a title will never be shown in the sidebar or search.**
+- `description` - A short description of the page, which will appear below the title.
+- `category` - Optional ID of the category this page belongs to. If not defined, the page is uncategorized. [More info](/docs/organization#categories)
+- `showTitle` - Whether or not to show the page's title and description at its top. By default it's `true`.
+- `showToc` - Whether or not to show the page's table of contents on the side. By default it's `true`.
+- `showSidebar` - Whether or not to show the sidebar when this page is viewed. By default it's `true`.
+- `includeInSidebar` - Whether or not to include this page as an item in the sidebar. By default it's `true`.
+
+### Example page metadata
+
+```mdx title="docs/installation.mdx"
+---
+title: Installation
+description: How to install PROJECT_NAME in your app.
+category: getting-started
+---
+```
+
+More example pages can be found in the `data/sample/` directory of this site.
