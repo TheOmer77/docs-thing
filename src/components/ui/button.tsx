@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
 export const buttonVariants = cva(
-  'inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-[background-color,opacity] state-layer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 disabled:pointer-events-none disabled:opacity-50 [&>*]:z-10 [&>svg]:shrink-0 [&>svg]:text-base',
+  'inline-flex cursor-default items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-[background-color,opacity] state-layer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 disabled:pointer-events-none disabled:opacity-50 [&>*]:z-10 [&>svg]:shrink-0 [&>svg]:text-base',
   {
     variants: {
       variant: {
@@ -16,25 +16,23 @@ export const buttonVariants = cva(
         flat: 'bg-transparent hover:state-layer-foreground/5 active:state-layer-foreground/10',
       },
       size: {
-        sm: 'h-9 px-3',
-        md: 'h-10 px-4',
-        lg: 'h-11 px-5',
+        sm: 'h-8 px-2 text-xs',
+        md: 'h-10 px-4 text-sm',
+        lg: 'h-12 px-6 text-base',
       },
       icon: { true: 'px-0' },
     },
     compoundVariants: [
-      { icon: true, size: 'sm', className: 'w-9' },
+      { icon: true, size: 'sm', className: 'w-8' },
       { icon: true, size: 'md', className: 'w-10' },
-      { icon: true, size: 'lg', className: 'w-11' },
+      { icon: true, size: 'lg', className: 'w-12' },
     ],
     defaultVariants: { variant: 'default', size: 'md', icon: false },
   }
 );
 
 type ButtonProps = ComponentProps<'button'> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  };
+  VariantProps<typeof buttonVariants> & { asChild?: boolean };
 
 export const Button = ({
   className,
