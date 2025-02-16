@@ -1,11 +1,15 @@
 import {
   Dialog as DialogRoot,
+  DialogClose,
   DialogContent,
   DialogOverlay,
   DialogPortal,
   type DialogProps,
   DialogTitle,
 } from '@radix-ui/react-dialog';
+import { XIcon } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
 
 import { SearchCommand } from './search-command';
 
@@ -18,6 +22,11 @@ export const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => (
         aria-describedby={undefined}
       >
         <DialogTitle className='sr-only'>Search docs...</DialogTitle>
+        <DialogClose asChild>
+          <Button icon variant='flat' className='absolute end-2 top-1'>
+            <XIcon />
+          </Button>
+        </DialogClose>
         <SearchCommand>{children}</SearchCommand>
       </DialogContent>
     </DialogPortal>
