@@ -4,7 +4,7 @@ description: Keep your site's pages organized.
 category: usage
 ---
 
-This site uses a file-based routing system, based on the file structure in the `data/` directory. Page slugs are automatically generated and assigned to each document, based on its file name and location in the file structure.
+This site uses a file-based routing system, based on the file structure in the `content` directory. Page slugs are automatically generated and assigned to each document, based on its file name and location in the file structure.
 
 ## Page order
 
@@ -16,9 +16,9 @@ For example, a page named `1-bbbb.mdx` would be placed before `2-aaaa.mdx`, and 
 
 Categories are labels used to group and organize pages based on their content or purpose. Each category label appears in the sidebar above any docs that are linked to that category.
 
-Categories and their display names can be defined in `data/config.json`. The `categories` field in this file is an object where keys are category IDs, and their values are the display names shown to the user.
+Categories and their display names can be defined in `content/config.json`. The `categories` field in this file is an object where keys are category IDs, and their values are the display names shown to the user.
 
-To assign a page to a category, set its `category` field to the **ID of the desired category.** If a page does not have a `category` field, or its category value isn't one of the category IDs defined in `data/config.json`, **it is considered uncategorized** and displayed at the top of the sidebar.
+To assign a page to a category, set its `category` field to the **ID of the desired category.** If a page does not have a `category` field, or its category value isn't one of the category IDs defined in `content/config.json`, **it is considered uncategorized** and displayed at the top of the sidebar.
 
 For example, with the following page and configuration, the page will be displayed in the sidebar under the "Getting started" category:
 

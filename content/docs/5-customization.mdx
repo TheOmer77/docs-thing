@@ -6,7 +6,7 @@ category: usage
 
 ## Site configuration
 
-The `config.json` file in the `data/` directory defines various site-wide properties:
+The `config.json` file in the `content` directory defines various site-wide properties:
 
 - `title` - Site title, appearing by default as the home page's `<title>`, as well as in the Nav's header.
 - `titleTemplate` - Template for the `<title>` of pages.
@@ -24,7 +24,7 @@ This site uses [Content Collections](https://www.content-collections.dev/) to di
 - **Doc** - Documentation pages, containing MDX content. \
   `src/config/content-collections/doc.ts`
   - You can optionally customize Shiki for code blocks, at `src/config/content-collections/shiki.ts`
-- **Site config** - The `data/config.json` global site configuration file described above. \
+- **Site config** - The `content/config.json` global site configuration file described above. \
   `src/config/content-collections/site-config.ts`
 
 If you want to add additional collection types (for example, blog pages) or just tweak the Content Collections options, you can edit its config file `content-collections.ts` at the root of this project.

@@ -2,7 +2,7 @@ import { defineCollection } from '@content-collections/core';
 
 export const siteConfig = defineCollection({
   name: 'Config',
-  directory: 'data',
+  directory: 'content',
   include: 'config.json',
   parser: 'json',
   schema: z => ({
