@@ -25,6 +25,7 @@
   },
   "include": [
     "src",
+    "content-collections.ts",
     "next-env.d.ts",
     ".content-collections/generated",
     ".next/types/**/*.ts"
