@@ -22,12 +22,12 @@ export const SearchDialog = ({ open, onOpenChange, children }: DialogProps) => (
         aria-describedby={undefined}
       >
         <DialogTitle className='sr-only'>Search docs...</DialogTitle>
+        <SearchCommand>{children}</SearchCommand>
         <DialogClose asChild>
           <Button icon variant='flat' className='absolute end-2 top-1'>
             <XIcon />
           </Button>
         </DialogClose>
-        <SearchCommand>{children}</SearchCommand>
       </DialogContent>
     </DialogPortal>
   </DialogRoot>
