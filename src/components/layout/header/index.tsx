@@ -27,10 +27,10 @@ const NavDrawerButton = () => {
   );
 };
 
-export const Nav = () => {
+export const Header = () => {
   const doc = useDoc();
   return (
-    <nav
+    <header
       className={cn(
         'fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full max-w-8xl -translate-x-1/2 flex-row items-center justify-between rtl:translate-x-1/2 print:static print:block print:h-auto print:translate-x-0',
         doc && 'bg-background', // Transparent nav on home page
@@ -45,7 +45,7 @@ export const Nav = () => {
         a different method for hiding on mobile */
         className='invisible absolute md:visible md:relative md:h-16 print:visible print:relative print:h-auto print:w-full print:p-0'
       />
-      <div
+      <nav
         className={cn(
           'flex h-full grow flex-row items-center justify-end px-2 sm:px-4 print:hidden',
           doc?.showSidebar && 'md:bg-background'
@@ -54,7 +54,7 @@ export const Nav = () => {
         <Search />
         <NavLinks />
         <ThemeMenu />
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
