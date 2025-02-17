@@ -11,7 +11,7 @@ import {
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
 
 const config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './data/**/*.mdx'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './content/**/*.mdx'],
   darkMode: [
     'variant',
     [

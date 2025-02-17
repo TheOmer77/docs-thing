@@ -1,0 +1,135 @@
+---
+title: Getting started
+description: Set up your new docs site from this template.
+category: usage
+---
+
+**Docs thing** is a template for documentation sites, powered by [Next.js](https://nextjs.org/) and [Content Collections](https://www.content-collections.dev/). It's designed to be fairly simple but easily extensible, though it does include some nice features out of the box.
+
+## Set up the project
+
+<Steps>
+### Clone the Docs Thing repo
+
+Start by cloning the repo for this template:
+
+```sh
+git clone https://github.com/TheOmer77/docs-thing.git
+cd docs-thing
+```
+
+Alternatively, you can [create a new repo on GitHub from this template](https://github.com/new?template_name=docs-thing&template_owner=TheOmer77).
+
+### Install dependencies
+
+Use your favorite package manager to install the project's dependencies:
+
+{/* prettier-ignore */}
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npm install
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn install
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm install
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bun install
+    ```
+  </Tab>
+</Tabs>
+
+> [!INFO] Note
+>
+> This project uses PNPM as its package manager. If you want to use a different one, remove `pnpm-lock.yaml` (your package manager will generate its own lockfile) and update the `packageManager` field in `package.json`.
+
+### Run the development server
+
+Use the `dev` script to run this project in development mode:
+
+{/* prettier-ignore */}
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npm run dev
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn dev
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm dev
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bun dev
+    ```
+  </Tab>
+</Tabs>
+
+### Start editing docs
+
+You're now ready to go! Start creating docs in the project's `content` directory, and write content using markdown and MDX.
+
+Next, you can learn how to [add metadata](/docs/page-meta) to your pages, [organize them](/docs/organization) or [use MDX components](/docs/components).
+
+</Steps>
+
+## Build for production
+
+Once you're done writing content, you can make a production build of your site and host it wherever you want.
+
+<Steps>
+### Optional: Choose build output
+
+Update the project's `next.config.mjs` file, adding an `output` with the value for your desired build output format:
+
+- `'export'`: A static build in the `out` directory, including just HTML/CSS/JS files.
+- `'standalone'`: A standalone build in the `.next/standalone` directory, useful if you want to host your site in a Docker container.
+
+> [!INFO] Deploying to Vercel
+>
+> If you want to host your site on Vercel, you can skip this step and just leave `output` undefined.
+
+### Build your site
+
+Finally, run the `build` script to build your docs site:
+
+{/* prettier-ignore */}
+<Tabs id='packageManager' items={['npm', 'yarn', 'pnpm', 'bun']}>
+  <Tab>
+    ```
+    npm run build
+    ```
+  </Tab>
+  <Tab>
+    ```
+    yarn build
+    ```
+  </Tab>
+  <Tab>
+    ```
+    pnpm build
+    ```
+  </Tab>
+  <Tab>
+    ```
+    bun run build
+    ```
+  </Tab>
+</Tabs>
+
+</Steps>

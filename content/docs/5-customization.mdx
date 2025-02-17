@@ -1,0 +1,75 @@
+---
+title: Customization
+description: Configure this docs site, and make it your own.
+category: usage
+---
+
+## Site configuration
+
+The `config.json` file in the `content` directory defines various site-wide properties:
+
+- `title` - Site title, appearing by default as the home page's `<title>`, as well as in the header logo.
+- `titleTemplate` - Template for the `<title>` of pages.
+- `links` - An array of links that will appear in the navbar, such as your git repo or social media. Each object in the array must be in the structure of:
+  ```ts
+  { href: string, label: string, type: string }
+  ```
+  In this example site the only type is `github`, but you can add additional types in `src/components/layout/nav/links.tsx`.
+- `categories` - An object where keys are category IDs and values are display names, as described in the [organization page](/docs/organization#categories).
+
+## Customize Content Collections
+
+This site uses [Content Collections](https://www.content-collections.dev/) to display MDX content. Two types of collections are used in its config file, which you can customize by updating their schemas.
+
+- **Doc** - Documentation pages, containing MDX content. \
+  `src/config/content-collections/doc.ts`
+  - You can optionally customize Shiki for code blocks, at `src/config/content-collections/shiki.ts`
+- **Site config** - The `content/config.json` global site configuration file described above. \
+  `src/config/content-collections/site-config.ts`
+
+If you want to add additional collection types (for example, blog pages) or just tweak the Content Collections options, you can edit its config file `content-collections.ts` at the root of this project.
+
+## Add custom MDX components
+
+In addition to the [available MDX components](/docs/components), you can add your own components to use in MDX pages.
+
+<Steps>
+### Create a component
+
+First, create your component in `src/components/mdx/`.
+
+```tsx title="src/components/mdx/custom-component.tsx"
+export const CustomComponent = ({ children }: PropsWithChildren) => (
+  <div>{children}</div>
+);
+```
+
+### Add to MDX components
+
+Add your custom component to the list of available MDX components.
+
+```tsx title="src/components/mdx/index.tsx"
+import { CustomComponent } from './custom-component';
+
+export const mdxComponents = {
+  // ...other components
+  CustomComponent,
+};
+```
+
+### Use your new component
+
+Now your custom component is ready to use! You can use it in any MDX page.
+
+{/* prettier-ignore */}
+```mdx title="data/doc.mdx"
+<CustomComponent>
+  Content of your custom component goes here.
+</CustomComponent>
+```
+
+</Steps>
+
+## Customize... everything!
+
+As this site is just a Next.js project, you can just customize everything in the `src` directory - including components, pages, styles and more. You can also customize config files outside of `src`.

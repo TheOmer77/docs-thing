@@ -1,0 +1,60 @@
+---
+title: Organization
+description: Keep your site's pages organized.
+category: usage
+---
+
+This site uses a file-based routing system, based on the file structure in the `content` directory. Page slugs are automatically generated and assigned to each document, based on its file name and location in the file structure.
+
+## Page order
+
+By default, the pages are shown in the sidebar and search in alphabetical order, sorted by their slug. However, it's possible to set a different order by starting the file name of a page with **a number, followed by a dash**. If named this way, the number and dash starting the file name are removed from that page's actual slug and URL, so it's only used for setting the order.
+
+For example, a page named `1-bbbb.mdx` would be placed before `2-aaaa.mdx`, and their URLs would be `/bbbb` and `/aaaa`.
+
+## Categories
+
+Categories are labels used to group and organize pages based on their content or purpose. Each category label appears in the sidebar above any docs that are linked to that category.
+
+Categories and their display names can be defined in `content/config.json`. The `categories` field in this file is an object where keys are category IDs, and their values are the display names shown to the user.
+
+To assign a page to a category, set its `category` field to the **ID of the desired category.** If a page does not have a `category` field, or its category value isn't one of the category IDs defined in `content/config.json`, **it is considered uncategorized** and displayed at the top of the sidebar.
+
+For example, with the following page and configuration, the page will be displayed in the sidebar under the "Getting started" category:
+
+```mdx title="docs/installation.mdx"
+---
+title: Installation
+category: getting-started
+---
+```
+
+```json title="data/config.json"
+{
+  "categories": {
+    "getting-started": "Getting started"
+  }
+}
+```
+
+## Page nesting
+
+Pages can be nested under other pages (or "folders"), similar to a file structure, for a more organized and intuitive structure of content.
+
+A page is considered nested if it's in a directory which also has an index page (`index.mdx`) - in that case, the index page is the parent, while all other pages in the directory are nested under it. A nested page is displayed under its parent alongside other pages in the same folder, if the parent page or any of its children is the currently viewed page. Otherwise, nested pages are hidden.
+
+However, if a page is in a folder which does not have an index page, there is nothing to nest it under - and is therefore treated like all other pages, and just displayed at the top level on the sidebar. This can be useful for just having an organized site structure.
+
+For example, in a folder called `nested` which is structured as shown below, `nested/index.mdx` serves as the main page for its directory, while the other pages are displayed under it.
+
+```
+nested
+├─ index.mdx
+├─ nested1.mdx
+├─ nested2.mdx
+└─ nested3.mdx
+```
+
+### Nesting & categories
+
+Nested pages are always displayed under their parent in the sidebar. **They are treated as if they have the same category as their parent index page,** so giving them a category is not needed and will have no effect.

@@ -12,7 +12,7 @@ const HEADINGS_REGEX = /^(?<flag>#{1,6})\s+(?<content>.+)$/gm,
 
 export const doc = defineCollection({
   name: 'Doc',
-  directory: 'data',
+  directory: 'content',
   include: '**/*.mdx',
   schema: z => ({
     /** Title of this page. */

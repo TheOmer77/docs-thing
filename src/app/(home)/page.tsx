@@ -28,7 +28,7 @@ const HomePage = () => (
             key={`home-action-${index}`}
             variant={primary ? 'primary' : 'default'}
             size='lg'
-            className='cursor-pointer text-base no-underline'
+            className='cursor-pointer no-underline'
             asChild
           >
             <Link href={href}>{text}</Link>
