@@ -44,10 +44,18 @@ export const MDX = () => {
           'lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]'
       )}
     >
-      {doc?.title && doc?.showTitle && (
-        <h1 className='text-5xl font-extrabold tracking-tight sm:text-6xl'>
-          {doc?.title}
-        </h1>
+      {doc?.showTitle && (
+        <>
+          {doc.title && (
+            <h1 className='mb-14 text-5xl font-extrabold tracking-tight sm:text-6xl'>
+              {doc.title}
+            </h1>
+          )}
+          {doc.description && (
+            /* eslint-disable-next-line tailwindcss/no-custom-classname */
+            <p className='lead -mt-8 mb-14'>{doc.description}</p>
+          )}
+        </>
       )}
       <MDXContent code={doc?.body.code || ''} components={mdxComponents} />
     </main>

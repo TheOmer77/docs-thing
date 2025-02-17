@@ -2,8 +2,12 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
+export const generateMetadata = () => ({
+  description: 'A simple docs site powered by Next.js and Content Collections.',
+});
+
 const actions = [
-  { text: 'Get started', href: '/docs/basic-usage', primary: true },
+  { text: 'Get started', href: '/docs/getting-started', primary: true },
   { text: 'Sample pages', href: '/sample/markdown-test' },
 ] satisfies { text: string; href: string; primary?: boolean }[];
 

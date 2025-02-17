@@ -1,9 +1,8 @@
 ---
 title: Components & syntax
+description: Custom components you can use in MDX pages.
 category: usage
 ---
-
-The following components are available out of the box for use in MDX pages:
 
 ## Alerts
 
@@ -106,6 +105,13 @@ const Counter = () => {
 
 You can also add a title to a code block, such as a file name.
 
+```ts title="lib/utils.ts"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+```
+
 ````mdx
 ```ts title="lib/utils.ts"
 import { type ClassValue, clsx } from 'clsx';
@@ -114,15 +120,6 @@ import { twMerge } from 'tailwind-merge';
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 ```
 ````
-
-This would render:
-
-```ts title="lib/utils.ts"
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
-```
 
 ## Steps
 

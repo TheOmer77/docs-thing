@@ -14,9 +14,10 @@ export const generateMetadata = async ({
 }) => {
   const slug = (await params).slug || [];
   const doc = allDocs.find(doc => doc.url === `/${slug.join('/')}`);
+  if (!doc) return {};
 
-  if (!doc?.title) return {};
-  return { title: doc.title };
+  const { title, description } = doc;
+  return { title, description };
 };
 
 const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
