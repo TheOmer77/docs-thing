@@ -16,10 +16,10 @@ export const SearchCommand = ({
       <SearchIcon className='absolute start-4 me-2 size-4 shrink-0 text-muted-foreground' />
       <CommandInput
         placeholder='Search docs...'
-        className='flex h-12 w-full rounded-lg bg-transparent px-3 ps-10 text-base text-foreground outline-none placeholder:text-muted-foreground md:h-11 md:text-sm'
+        className='flex h-12 w-full rounded-lg bg-transparent px-3 ps-10 text-base text-foreground outline-none placeholder:text-muted-foreground md:text-sm'
       />
     </div>
-    <ScrollArea className='max-h-80 overflow-y-auto overflow-x-hidden [direction:inherit]'>
+    <ScrollArea className='max-h-80 overflow-y-auto overflow-x-hidden [direction:inherit] md:max-h-96'>
       <CommandList className='p-2'>
         <CommandEmpty className='py-6 text-center text-sm text-muted-foreground'>
           No results found.
