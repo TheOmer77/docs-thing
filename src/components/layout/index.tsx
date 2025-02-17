@@ -5,7 +5,7 @@ import type { PropsWithChildren } from 'react';
 import { useDoc } from '@/hooks/use-doc';
 import { cn } from '@/lib/cn';
 
-import { Nav } from './nav';
+import { Header } from './header';
 import { Sidebar } from './sidebar';
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -13,7 +13,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
     <>
-      <Nav />
+      <Header />
 
       <div
         className={cn(

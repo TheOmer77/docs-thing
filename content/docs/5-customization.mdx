@@ -10,11 +10,11 @@ The `config.json` file in the `content` directory defines various site-wide prop
 
 - `title` - Site title, appearing by default as the home page's `<title>`, as well as in the header logo.
 - `titleTemplate` - Template for the `<title>` of pages.
-- `links` - An array of links that will appear in the navbar, such as your git repo or social media. Each object in the array must be in the structure of:
+- `links` - An array of links that will appear in the header, such as your git repo or social media. Each object in the array must be in the structure of:
   ```ts
   { href: string, label: string, type: string }
   ```
-  In this example site the only type is `github`, but you can add additional types in `src/components/layout/nav/links.tsx`.
+  In this example site the only type is `github`, but you can add additional types in `src/components/layout/header/links.tsx`.
 - `categories` - An object where keys are category IDs and values are display names, as described in the [organization page](/docs/organization#categories).
 
 ## Customize Content Collections
