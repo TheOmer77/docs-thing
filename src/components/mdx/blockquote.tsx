@@ -1,5 +1,6 @@
 import {
   Children,
+  type ComponentProps,
   type ComponentPropsWithoutRef,
   isValidElement,
   type PropsWithChildren,
@@ -8,28 +9,23 @@ import {
 } from 'react';
 import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
 
-import { cn } from '@/lib/cn';
+import { Alert, AlertTitle } from '@/components/ui/alert';
 
-const ALERT_TYPES = {
-  info: {
-    prefix: '[!info]',
-    className: 'border-primary first:[&>*]:text-primary',
-    icon: <InfoIcon />,
-  },
-  danger: {
-    prefix: '[!danger]',
-    className: 'border-danger first:[&>*]:text-danger',
-    icon: <AlertOctagonIcon />,
-  },
-} as const satisfies Record<
-  string,
-  { prefix: `[!${string}]`; className: string; icon: ReactNode }
+type AlertVariant = Exclude<
+  ComponentProps<typeof Alert>['variant'],
+  null | undefined
 >;
+type AlertType = { variant: AlertVariant; icon: ReactNode };
+
+const ALERT_TYPES = [
+  { variant: 'info', icon: <InfoIcon /> },
+  { variant: 'danger', icon: <AlertOctagonIcon /> },
+] as const satisfies AlertType[];
 
 const getAlertType = (initialContent: ReactNode) => {
   if (typeof initialContent !== 'string') return;
-  return Object.values(ALERT_TYPES).find(({ prefix }) =>
-    initialContent.toLowerCase().startsWith(prefix)
+  return ALERT_TYPES.find(({ variant }) =>
+    initialContent.toLowerCase().startsWith(`[!${variant}]`)
   );
 };
 
@@ -38,33 +34,24 @@ export const MdxBlockquote = ({
   children,
   ...props
 }: ComponentPropsWithoutRef<'blockquote'>) => {
-  const childrenArr = Children.toArray(children).filter(
+  const [firstChild, ...restChildren] = Children.toArray(children).filter(
     isValidElement
   ) as ReactElement<PropsWithChildren>[];
-  const initialContent = Children.toArray(childrenArr[0]?.props.children)[0];
-  const alertType = getAlertType(initialContent);
+  const initialContent = Children.toArray(firstChild?.props.children)[0];
+  const alertType = getAlertType(initialContent),
+    alertPrefix = alertType ? `[!${alertType?.variant}]` : undefined;
 
-  return alertType ? (
-    <div
-      className={cn(
-        'my-[1.6em] border-s-[0.25rem] ps-em [&>:nth-child(2)]:mt-0',
-        alertType.className,
-        className
-      )}
-    >
-      <p
-        className={cn(
-          'mb-2 flex flex-row items-center [&>*]:text-inherit [&>svg]:me-3 [&>svg]:shrink-0'
-        )}
-      >
-        {alertType.icon}
-        {Children.toArray(childrenArr[0]?.props.children)[0]
+  return alertType && alertPrefix ? (
+    <Alert variant={alertType.variant} className='my-[1.25em]'>
+      {alertType.icon}
+      <AlertTitle className='my-0 -mt-1 leading-normal [&~*]:prose-sm [&+*]:mt-1 [&~:last-child]:mb-0'>
+        {Children.toArray(firstChild?.props.children)[0]
           ?.toString()
-          .slice(alertType.prefix.length)}
-        {Children.toArray(childrenArr[0]?.props.children).slice(1)}
-      </p>
-      {childrenArr.slice(1)}
-    </div>
+          ?.slice(alertPrefix.length)}
+        {Children.toArray(firstChild?.props.children)?.slice(1)}
+      </AlertTitle>
+      {restChildren}
+    </Alert>
   ) : (
     <blockquote {...props} className={className}>
       {children}
