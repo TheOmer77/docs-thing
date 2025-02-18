@@ -9,7 +9,7 @@ export const Logo = ({
   className,
   ...props
 }: ComponentPropsWithoutRef<'header'>) => (
-  <header
+  <div
     {...props}
     className={cn(`flex h-16 flex-row items-center px-4 md:w-80`, className)}
   >
@@ -19,5 +19,5 @@ export const Logo = ({
     >
       {config.title}
     </SidebarLink>
-  </header>
+  </div>
 );
