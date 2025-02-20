@@ -5,6 +5,7 @@ import type { Config } from 'tailwindcss';
 import {
   animations,
   autofillOverride,
+  bgMix,
   stateLayer,
 } from './src/config/tailwind';
 
@@ -146,7 +147,7 @@ const config = {
       },
     },
   },
-  plugins: [animations, autofillOverride, stateLayer, typography],
+  plugins: [animations, autofillOverride, bgMix, stateLayer, typography],
 } satisfies Config;
 
 export default config;
