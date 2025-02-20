@@ -53,7 +53,7 @@ export const DropdownMenuItem = ({
   <Item
     data-inset={inset}
     className={cn(
-      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm px-2 text-base outline-none transition-[background-color] duration-100 state-layer focus:state-layer-muted/30 active:bg-muted/30 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
+      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm px-2 text-base outline-none transition-[background-color] duration-100 focus:bg-muted-foreground/10 active:bg-muted-foreground/20 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
       className
     )}
     {...props}
@@ -70,7 +70,7 @@ export const DropdownMenuCheckboxItem = ({
     {...props}
     checked={checked}
     className={cn(
-      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm pe-2 ps-8 text-base outline-none transition-[background-color] duration-100 state-layer focus:state-layer-muted/30 active:bg-muted/30 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
+      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm pe-2 ps-8 text-base outline-none transition-[background-color] duration-100 focus:bg-muted-foreground/10 active:bg-muted-foreground/20 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
       className
     )}
   >
@@ -89,7 +89,7 @@ export const DropdownMenuRadioItem = ({
   <RadioItem
     {...props}
     className={cn(
-      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm pe-2 ps-8 text-base outline-none transition-[background-color] duration-100 state-layer focus:state-layer-muted/30 active:bg-muted/30 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
+      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm pe-2 ps-8 text-base outline-none transition-[background-color] duration-100 focus:bg-muted-foreground/10 active:bg-muted-foreground/20 active:duration-0 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&>*]:z-10',
       className
     )}
   >
@@ -148,7 +148,7 @@ export const DropdownMenuSubTrigger = ({
   <SubTrigger
     {...props}
     className={cn(
-      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm px-2 text-base outline-none transition-[background-color] duration-100 state-layer focus:state-layer-muted/30 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&:not([data-state=open])]:active:bg-muted/30 [&:not([data-state=open])]:active:duration-0 [&>*]:z-10',
+      'relative flex h-10 w-full cursor-default select-none items-center rounded-sm px-2 text-base outline-none transition-[background-color] duration-100 focus:bg-muted-foreground/10 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 md:h-8 md:text-sm [&:not([data-state=open])]:active:bg-muted-foreground/20 [&:not([data-state=open])]:active:duration-0 [&>*]:z-10',
       inset && 'ps-8',
       className
     )}
