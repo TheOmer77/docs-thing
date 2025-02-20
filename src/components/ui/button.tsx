@@ -10,7 +10,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border border-input/40 shadow-sm shadow-neutral-950/10 bg-mix-background mix-with-muted-foreground dark:bg-mix-neutral-800',
+          'border shadow-sm shadow-neutral-950/10 bg-mix-background mix-with-muted-foreground dark:bg-mix-neutral-800',
         primary:
           'text-primary-foreground shadow-sm shadow-primary/30 bg-mix-primary mix-with-primary-foreground',
         flat: 'bg-mix-transparent mix-with-muted-foreground',
