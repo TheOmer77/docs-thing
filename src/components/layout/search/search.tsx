@@ -1,6 +1,7 @@
 import { Fragment, Suspense, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
+import { useIsClient } from '@/hooks/use-is-client';
 import { useModal } from '@/hooks/use-modal';
 import { allDocs, config, sidebarDocs } from '@/constants/docs';
 import type { Doc } from '@/types/docs';
@@ -29,6 +30,7 @@ const uncategorizedDocs = sidebarDocs.filter(
 const ClientSearch = () => {
   const { currentModal, openModal, closeModal } = useModal();
   const router = useRouter();
+  const isClient = useIsClient();
 
   const handleOpenChange = (open: boolean) => !open && closeModal();
 
@@ -53,7 +55,7 @@ const ClientSearch = () => {
 
   return (
     <>
-      <SearchButton onClick={() => openModal('search')} />
+      <SearchButton onClick={() => openModal('search')} disabled={!isClient} />
       <SearchDialog
         open={currentModal === 'search'}
         onOpenChange={handleOpenChange}

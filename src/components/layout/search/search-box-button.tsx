@@ -19,15 +19,17 @@ export const SearchBoxButton = ({
   >
     <SearchIcon />
     <span className='grow text-start'>Search docs...</span>
-    <kbd className='flex h-5 flex-row items-center rounded bg-background/60 px-1.5 font-mono text-[0.625rem] uppercase group-disabled:hidden dark:bg-muted/25'>
-      {typeof window !== 'undefined' &&
-      window.navigator.userAgent.includes('Macintosh') ? (
-        <>
-          <span className='me-1 text-xs'>⌘</span>K
-        </>
-      ) : (
-        'CTRL K'
-      )}
-    </kbd>
+    {!disabled && (
+      <kbd className='flex h-5 flex-row items-center rounded bg-background/60 px-1.5 font-mono text-[0.625rem] uppercase group-disabled:hidden dark:bg-muted/25'>
+        {typeof window !== 'undefined' &&
+        window.navigator.userAgent.includes('Macintosh') ? (
+          <>
+            <span className='me-1 text-xs'>⌘</span>K
+          </>
+        ) : (
+          'CTRL K'
+        )}
+      </kbd>
+    )}
   </button>
 );
