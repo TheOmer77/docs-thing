@@ -1,7 +1,6 @@
 import {
   type ComponentPropsWithoutRef,
   type RefObject,
-  useEffect,
   useRef,
   useState,
 } from 'react';
@@ -13,6 +12,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { useIsClient } from '@/hooks/use-is-client';
 import { cn } from '@/lib/cn';
 
 type CopyCodeButtonProps = {
@@ -22,10 +22,7 @@ type CopyCodeButtonProps = {
 
 const CopyCodeButton = ({ codeRef, className }: CopyCodeButtonProps) => {
   const [justCopied, setJustCopied] = useState(false);
-  const [isClient, setClient] = useState(false);
-  useEffect(() => {
-    setClient(true);
-  }, []);
+  const isClient = useIsClient();
 
   const handleCopy = async () => {
     if (!codeRef.current || justCopied || !window?.isSecureContext) return;
