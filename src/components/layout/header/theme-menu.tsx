@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from 'lucide-react';
 
@@ -17,6 +16,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { useIsClient } from '@/hooks/use-is-client';
 
 const THEMES = {
   system: 'System',
@@ -26,10 +26,7 @@ const THEMES = {
 
 export const ThemeMenu = () => {
   const { setTheme, theme } = useTheme();
-  const [isClient, setClient] = useState(false);
-  useEffect(() => {
-    setClient(true);
-  }, []);
+  const isClient = useIsClient();
 
   return (
     <DropdownMenu>
