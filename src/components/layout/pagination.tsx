@@ -51,7 +51,7 @@ export const Pagination = () => {
   return (
     <div
       className={cn(
-        'mx-auto mb-8 grid w-full max-w-[100vw] grid-cols-2 gap-2 px-4 [print-color-adjust:exact] md:max-w-[calc(100vw-22rem)] print:hidden',
+        'mx-auto grid w-full max-w-[100vw] grid-cols-2 gap-2 self-end px-4 [print-color-adjust:exact] md:max-w-[calc(100vw-22rem)] print:hidden',
         doc?.showSidebar &&
           'col-start-2 md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
         doc?.showSidebar &&
