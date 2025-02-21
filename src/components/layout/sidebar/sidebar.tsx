@@ -26,38 +26,42 @@ const ListCategories = () => {
           {config.categories[category] || category}
         </ListSubheader>
       )}
-      {docs.map(doc => {
-        const childDocs = allDocs
-          .filter(childDoc =>
-            childDoc._meta.path.startsWith(`${doc._meta.path}/`)
-          )
-          .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
-        const isActive = doc.url === pathname,
-          isChildActive = childDocs.some(childDoc => childDoc.url === pathname);
+      {docs
+        .filter(doc => doc?.includeInSidebar)
+        .map(doc => {
+          const childDocs = allDocs
+            .filter(childDoc =>
+              childDoc._meta.path.startsWith(`${doc._meta.path}/`)
+            )
+            .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
+          const isActive = doc.url === pathname,
+            isChildActive = childDocs.some(
+              childDoc => childDoc.url === pathname
+            );
 
-        return (
-          <Collapsible open={isActive || isChildActive} key={doc._id}>
-            <CollapsibleTrigger asChild>
-              <SidebarItem
-                doc={doc}
-                active={isActive}
-                childActive={isChildActive}
-              />
-            </CollapsibleTrigger>
-            {childDocs.length > 0 && (
-              <CollapsibleContent className='flex w-full flex-col gap-px ps-4'>
-                {childDocs.map(childDoc => (
-                  <SidebarItem
-                    key={childDoc._id}
-                    doc={childDoc}
-                    active={childDoc.url === pathname}
-                  />
-                ))}
-              </CollapsibleContent>
-            )}
-          </Collapsible>
-        );
-      })}
+          return (
+            <Collapsible open={isActive || isChildActive} key={doc._id}>
+              <CollapsibleTrigger asChild>
+                <SidebarItem
+                  doc={doc}
+                  active={isActive}
+                  childActive={isChildActive}
+                />
+              </CollapsibleTrigger>
+              {childDocs.length > 0 && (
+                <CollapsibleContent className='flex w-full flex-col gap-px ps-4'>
+                  {childDocs.map(childDoc => (
+                    <SidebarItem
+                      key={childDoc._id}
+                      doc={childDoc}
+                      active={childDoc.url === pathname}
+                    />
+                  ))}
+                </CollapsibleContent>
+              )}
+            </Collapsible>
+          );
+        })}
     </Fragment>
   ));
 };

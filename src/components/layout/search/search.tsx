@@ -44,15 +44,16 @@ const ClientSearch = () => {
         open={currentModal === 'search'}
         onOpenChange={handleOpenChange}
       >
-        {Object.keys(docsByCategory).map(category => (
+        {Object.entries(docsByCategory).map(([category, docs]) => (
           <SearchGroup
             key={category}
             {...(category !== '_'
               ? { heading: config.categories[category] }
               : {})}
           >
-            {docsByCategory[category as keyof typeof docsByCategory]?.map(
-              doc => {
+            {docs
+              .filter(doc => doc?.includeInSidebar)
+              .map(doc => {
                 const children = allDocs
                   .filter(childDoc =>
                     childDoc._meta.path.startsWith(`${doc._meta.path}/`)
@@ -75,8 +76,7 @@ const ClientSearch = () => {
                     ))}
                   </Fragment>
                 );
-              }
-            )}
+              })}
           </SearchGroup>
         ))}
       </SearchDialog>
