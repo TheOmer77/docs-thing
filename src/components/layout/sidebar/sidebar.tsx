@@ -22,7 +22,7 @@ const ListCategories = () => {
   return Object.entries(docsByCategory).map(([category, docs]) => (
     <Fragment key={category}>
       {category !== '_' && (
-        <ListSubheader className='bg-popover' data-sidebar-subheader=''>
+        <ListSubheader className='bg-card' data-sidebar-subheader=''>
           {config.categories[category] || category}
         </ListSubheader>
       )}
