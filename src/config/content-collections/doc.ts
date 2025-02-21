@@ -25,6 +25,9 @@ export const doc = defineCollection({
     showTitle: z.boolean().default(true),
     /** Whether or not to show the page's table of contents on the side. */
     showToc: z.boolean().default(true),
+    /** Whether or not to show the next and previous page buttons at the bottom
+     * of the page. */
+    showPagination: z.boolean().default(true),
     /** Whether or not to show the sidebar when this page is viewed. */
     showSidebar: z.boolean().default(true),
     /** Whether or not to include this page as an item in the sidebar. */
