@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import { Pagination } from '@/components/layout/pagination';
 import { Toc } from '@/components/layout/toc';
 import { MDX } from '@/components/mdx';
 import { allDocs } from '@/constants/docs';
@@ -29,6 +30,7 @@ const DocPage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
     <>
       <MDX />
       {doc.showToc && <Toc />}
+      {doc.showPagination && <Pagination />}
     </>
   );
 };
