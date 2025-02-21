@@ -36,38 +36,20 @@ export const allDocs = unsortedAllDocs.sort((a, b) => {
   return 0;
 });
 
-export const filteredDocs = allDocs.filter(doc => {
-  if (!doc.title || !doc.includeInSidebar) return false;
-  const parentFolder = doc._meta.path.split('/').slice(0, -1).join('/');
-  return !allDocs.some(
-    d =>
-      d._meta.path === parentFolder &&
-      d._id.startsWith(`${parentFolder}/index.`)
-  );
-});
+export const topLevelDocs = allDocs.filter(doc => !getParentDoc(doc));
 
-export const sidebarDocs = [
-  ...filteredDocs
-    .filter(doc => !isNaN(Number(doc._meta.fileName.split('-')[0])))
-    .sort((a, b) => {
-      const aFilenameNum = Number(a._meta.fileName.split('-')[0]),
-        bFilenameNum = Number(b._meta.fileName.split('-')[0]);
-
-      switch (true) {
-        case aFilenameNum > bFilenameNum:
-          return 1;
-        case aFilenameNum < bFilenameNum:
-          return -1;
-        case a.url > b.url:
-          return 1;
-        case a.url < b.url:
-          return -1;
-        default:
-          return 0;
-      }
+const uncategorizedDocs = topLevelDocs.filter(
+  doc =>
+    typeof doc.category !== 'string' ||
+    !Object.keys(config.categories).includes(doc.category)
+);
+export const docsByCategory = {
+  ...(uncategorizedDocs.length > 0 ? { _: uncategorizedDocs } : {}),
+  ...Object.keys(config.categories).reduce(
+    (obj, category) => ({
+      ...obj,
+      [category]: topLevelDocs.filter(doc => doc.category === category),
     }),
-  ...filteredDocs
-    .filter(doc => isNaN(Number(doc._meta.fileName.split('-')[0])))
-    .sort((a, b) => (a.url > b.url ? 1 : a.url < b.url ? -1 : 0)),
-];
-
+    {} as { [key: string]: Doc[] }
+  ),
+};

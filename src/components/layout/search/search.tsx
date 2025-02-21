@@ -3,29 +3,13 @@ import { useRouter } from 'next/navigation';
 
 import { useIsClient } from '@/hooks/use-is-client';
 import { useModal } from '@/hooks/use-modal';
-import { allDocs, config, sidebarDocs } from '@/constants/docs';
+import { allDocs, config, docsByCategory } from '@/constants/docs';
 import type { Doc } from '@/types/docs';
 
 import { SearchButton } from './search-button';
 import { SearchDialog } from './search-dialog';
 import { SearchGroup } from './search-group';
 import { SearchItem } from './search-item';
-
-const uncategorizedDocs = sidebarDocs.filter(
-    doc =>
-      typeof doc.category !== 'string' ||
-      !Object.keys(config.categories).includes(doc.category)
-  ),
-  docsByCategory = {
-    ...(uncategorizedDocs.length > 0 ? { _: uncategorizedDocs } : {}),
-    ...Object.keys(config.categories).reduce(
-      (obj, category) => ({
-        ...obj,
-        [category]: sidebarDocs.filter(doc => doc.category === category),
-      }),
-      {} as { [key: string]: Doc[] }
-    ),
-  };
 
 const ClientSearch = () => {
   const { currentModal, openModal, closeModal } = useModal();
