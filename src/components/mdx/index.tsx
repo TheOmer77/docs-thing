@@ -36,12 +36,12 @@ export const MDX = () => {
   return (
     <main
       className={cn(
-        `prose mx-auto w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] dark:prose-invert print:max-w-none print:px-0`,
-        doc?.showSidebar &&
-          'col-start-2 md:max-w-[calc(100vw-22rem)] lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
-        doc?.showSidebar &&
-          doc?.showToc &&
-          'lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]'
+        `prose mx-auto w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] dark:prose-invert md:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))] print:max-w-none print:px-0`,
+        doc?.showSidebar && [
+          'md:col-start-2 lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]',
+          !doc?.showToc &&
+            'xl:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
+        ]
       )}
     >
       {doc?.showTitle && (
