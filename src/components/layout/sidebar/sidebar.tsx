@@ -11,80 +11,59 @@ import { List, ListSubheader } from '@/components/ui/list';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useDoc } from '@/hooks/use-doc';
 import { useModal } from '@/hooks/use-modal';
-import { allDocs, config, sidebarDocs } from '@/constants/docs';
-import type { Doc } from '@/types/docs';
+import { allDocs, config, docsByCategory } from '@/constants/docs';
 
 import { SidebarItem } from './sidebar-item';
 import { Logo } from '../logo';
 
-const uncategorizedDocs = sidebarDocs.filter(
-    doc =>
-      typeof doc.category !== 'string' ||
-      !Object.keys(config.categories).includes(doc.category)
-  ),
-  docsByCategory = {
-    ...(uncategorizedDocs.length > 0 ? { _: uncategorizedDocs } : {}),
-    ...Object.keys(config.categories).reduce(
-      (obj, category) => ({
-        ...obj,
-        [category]: sidebarDocs.filter(doc => doc.category === category),
-      }),
-      {} as { [key: string]: Doc[] }
-    ),
-  };
-
 const ListCategories = () => {
   const pathname = usePathname();
-  return Object.keys(docsByCategory).map(category => {
-    const categoryDocs =
-      docsByCategory[category as keyof typeof docsByCategory];
-    return (
-      Array.isArray(categoryDocs) &&
-      categoryDocs.length > 0 && (
-        <Fragment key={category}>
-          {category !== '_' && (
-            <ListSubheader className='bg-popover' data-sidebar-subheader=''>
-              {config.categories[category] || category}
-            </ListSubheader>
-          )}
-          {docsByCategory[category as keyof typeof docsByCategory]?.map(doc => {
-            const children = allDocs
-              .filter(childDoc =>
-                childDoc._meta.path.startsWith(`${doc._meta.path}/`)
-              )
-              .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
-            const isActive = doc.url === pathname,
-              isChildActive = children.some(
-                childDoc => childDoc.url === pathname
-              );
 
-            return (
-              <Collapsible open={isActive || isChildActive} key={doc._id}>
-                <CollapsibleTrigger asChild>
-                  <SidebarItem
-                    doc={doc}
-                    active={isActive}
-                    childActive={isChildActive}
-                  />
-                </CollapsibleTrigger>
-                {children.length > 0 && (
-                  <CollapsibleContent className='flex w-full flex-col gap-px ps-4'>
-                    {children.map(childDoc => (
-                      <SidebarItem
-                        key={childDoc._id}
-                        doc={childDoc}
-                        active={childDoc.url === pathname}
-                      />
-                    ))}
-                  </CollapsibleContent>
-                )}
-              </Collapsible>
+  return Object.entries(docsByCategory).map(([category, docs]) => (
+    <Fragment key={category}>
+      {category !== '_' && (
+        <ListSubheader className='bg-card group-data-[vaul-drawer]/drawer-content:bg-popover'>
+          {config.categories[category] || category}
+        </ListSubheader>
+      )}
+      {docs
+        .filter(doc => doc?.includeInSidebar)
+        .map(doc => {
+          const childDocs = allDocs
+            .filter(childDoc =>
+              childDoc._meta.path.startsWith(`${doc._meta.path}/`)
+            )
+            .sort((a, b) => (a._meta.path > b._meta.path ? 1 : -1));
+          const isActive = doc.url === pathname,
+            isChildActive = childDocs.some(
+              childDoc => childDoc.url === pathname
             );
-          })}
-        </Fragment>
-      )
-    );
-  });
+
+          return (
+            <Collapsible open={isActive || isChildActive} key={doc._id}>
+              <CollapsibleTrigger asChild>
+                <SidebarItem
+                  doc={doc}
+                  active={isActive}
+                  childActive={isChildActive}
+                />
+              </CollapsibleTrigger>
+              {childDocs.length > 0 && (
+                <CollapsibleContent className='flex w-full flex-col gap-px ps-4'>
+                  {childDocs.map(childDoc => (
+                    <SidebarItem
+                      key={childDoc._id}
+                      doc={childDoc}
+                      active={childDoc.url === pathname}
+                    />
+                  ))}
+                </CollapsibleContent>
+              )}
+            </Collapsible>
+          );
+        })}
+    </Fragment>
+  ));
 };
 
 const SidebarDrawer = () => {
@@ -116,7 +95,7 @@ export const Sidebar = () => {
   return (
     <>
       {doc?.showSidebar && (
-        <aside className='fixed top-0 z-10 hidden w-[--sidebar-width] select-none flex-col self-start after:absolute after:end-0 after:top-0 after:-z-10 after:h-screen after:w-screen after:bg-card md:flex print:hidden [&_[data-sidebar-subheader]]:bg-card'>
+        <aside className='fixed top-0 z-10 hidden w-[--sidebar-width] select-none flex-col self-start after:absolute after:end-0 after:top-0 after:-z-10 after:h-screen after:w-screen after:bg-card md:flex print:hidden'>
           <ScrollArea className='mt-16 flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>
               <ListCategories />

@@ -1,10 +1,11 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { MenuIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/layout/logo';
 import { Search } from '@/components/layout/search';
 import { useDoc } from '@/hooks/use-doc';
+import { useIsClient } from '@/hooks/use-is-client';
 import { useModal } from '@/hooks/use-modal';
 import { cn } from '@/lib/cn';
 
@@ -29,11 +30,25 @@ const NavDrawerButton = () => {
 
 export const Header = () => {
   const doc = useDoc();
+  const isClient = useIsClient();
+  const [isScrollTop, setIsScrollTop] = useState(true);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      const currIsScrollTop = window.scrollY < 1;
+      if (currIsScrollTop !== isScrollTop) setIsScrollTop(currIsScrollTop);
+    };
+
+    scrollListener();
+    window.addEventListener('scroll', scrollListener);
+    return () => window.removeEventListener('scroll', scrollListener);
+  }, [isScrollTop]);
+
   return (
     <header
       className={cn(
-        'fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full max-w-8xl -translate-x-1/2 flex-row items-center justify-between rtl:translate-x-1/2 print:static print:block print:h-auto print:translate-x-0',
-        doc && 'bg-background', // Transparent nav on home page
+        'fixed start-1/2 top-0 z-20 mx-auto flex h-16 w-full max-w-8xl -translate-x-1/2 flex-row items-center justify-between transition-[background-color] rtl:translate-x-1/2 print:static print:block print:h-auto print:translate-x-0',
+        !isScrollTop && isClient && 'bg-background',
         doc?.showSidebar && 'md:bg-transparent'
       )}
     >
@@ -47,8 +62,8 @@ export const Header = () => {
       />
       <nav
         className={cn(
-          'flex h-full grow flex-row items-center justify-end px-2 sm:px-4 print:hidden',
-          doc?.showSidebar && 'md:bg-background'
+          'flex h-full grow flex-row items-center justify-end px-2 transition-[background-color] sm:px-4 print:hidden',
+          doc?.showSidebar && !isScrollTop && 'md:bg-background'
         )}
       >
         <Search />

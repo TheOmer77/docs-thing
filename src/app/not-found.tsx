@@ -6,7 +6,7 @@ export const generateMetadata = () => ({
 });
 
 const NotFoundPage = () => (
-  <main className='-mt-16 flex min-h-dvh w-full flex-col items-center justify-center px-4 text-center'>
+  <main className='-mt-16 flex min-h-dvh w-full flex-col items-center justify-center px-4 py-16 text-center'>
     <h1 className='font-mono text-[min(calc(50dvw-1rem),25rem)] font-extrabold leading-none tracking-tighter text-muted-foreground/30'>
       404
     </h1>
