@@ -12,7 +12,7 @@ const actions = [
 ] satisfies { text: string; href: string; primary?: boolean }[];
 
 const HomePage = () => (
-  <main className='isolate -mt-16 flex min-h-dvh w-full flex-col items-center justify-center gap-4 px-6 before:absolute before:start-1/2 before:top-0 before:-z-10 before:h-dvh before:w-dvw before:-translate-x-1/2 before:bg-[linear-gradient(-45deg,var(--tw-gradient-stops))] before:from-primary/25 before:to-primary/5 before:bg-cover sm:px-8 lg:px-8 before:dark:from-primary/0 before:dark:to-primary/20'>
+  <main className='isolate -mt-16 flex min-h-dvh w-full flex-col items-center justify-center gap-4 px-6 before:absolute before:start-1/2 before:top-0 before:-z-10 before:h-full before:w-dvw before:-translate-x-1/2 before:bg-[linear-gradient(-45deg,var(--tw-gradient-stops))] before:from-primary/25 before:to-primary/5 before:bg-cover sm:px-8 lg:px-8 before:dark:from-primary/0 before:dark:to-primary/20'>
     <div className='mx-auto max-w-2xl space-y-8 py-32 text-center sm:py-48 lg:py-56'>
       <h1 className='text-balance text-6xl font-extrabold tracking-tight sm:text-7xl'>
         Kickstart your docs.
