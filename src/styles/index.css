@@ -9,6 +9,11 @@
 
 @custom-variant dark {
   @media not print {
+    @media (prefers-color-scheme: dark) {
+      &:not(:is([data-theme='light'] *)) {
+        @slot;
+      }
+    }
     &:is([data-theme='dark'] *) {
       @slot;
     }
@@ -19,6 +24,11 @@
   color-scheme: light;
 }
 @media not print {
+  @media (prefers-color-scheme: dark) {
+    :not([data-theme='light']):not(:is([data-theme='light'] *)) {
+      color-scheme: dark;
+    }
+  }
   [data-theme='dark'] {
     color-scheme: dark;
   }
