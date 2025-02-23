@@ -28,9 +28,9 @@ export const MdxHeading = <T extends HeadingType>({
       {children}
       <a
         href={`#${id}`}
-        className='ms-2 text-base text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 print:hidden'
+        className='ms-2 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 print:hidden'
       >
-        <LinkIcon className='inline translate-y-[calc(-50%+0.3em)]' />
+        <LinkIcon className='inline size-4 translate-y-[calc(-50%+0.3em)]' />
       </a>
     </Comp>
   );

@@ -31,9 +31,9 @@ const PaginationLink = ({ type, doc }: PaginationLinkProps) => (
           type === 'next' ? 'justify-end' : 'justify-start'
         )}
       >
-        {type === 'prev' && <ChevronLeftIcon />}
+        {type === 'prev' && <ChevronLeftIcon className='size-4' />}
         {type === 'next' ? 'Next' : 'Previous'}
-        {type === 'next' && <ChevronRightIcon />}
+        {type === 'next' && <ChevronRightIcon className='size-4' />}
       </div>
       <div className='text-base tracking-tight'>{doc.title}</div>
     </Link>
@@ -51,11 +51,11 @@ export const Pagination = () => {
   return (
     <div
       className={cn(
-        'mx-auto grid w-full max-w-[100vw] grid-cols-2 gap-2 self-end px-4 pb-8 [print-color-adjust:exact] md:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))] print:hidden',
+        'mx-auto grid w-full max-w-[100vw] grid-cols-2 gap-2 self-end px-4 pb-8 [print-color-adjust:exact] md:max-w-[min(calc(100vw-22rem),var(--container-2xl))] print:hidden',
         doc?.showSidebar && [
-          'md:col-start-2 lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]',
+          'md:col-start-2 lg:max-w-[min(calc(100vw-22rem),var(--container-2xl))]',
           !doc?.showToc &&
-            'xl:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
+            'xl:max-w-[min(calc(100vw-22rem),var(--container-3xl))]',
         ]
       )}
     >

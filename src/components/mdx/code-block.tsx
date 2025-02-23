@@ -62,7 +62,7 @@ export const CodeBlock = ({
   return (
     <div className='relative'>
       {title ? (
-        <div className='flex h-10 flex-row items-center rounded-t-lg border-b bg-[--tw-prose-pre-bg] pe-2 ps-4'>
+        <div className='flex h-10 flex-row items-center rounded-t-lg border-b bg-(--tw-prose-pre-bg) ps-4 pe-2'>
           <span className='font-mono text-sm text-muted-foreground'>
             {title}
           </span>

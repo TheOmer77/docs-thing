@@ -97,7 +97,7 @@ export const ListItem = ({
       {...props}
       disabled={disabled}
       className={cn(
-        'flex min-h-12 w-full select-none items-center rounded-lg px-4 py-2 text-start text-base outline-none transition-[background-color] duration-100 bg-mix-transparent mix-with-muted-foreground focus-visible:outline-none focus-visible:mix-amount-10 active:duration-0 active:mix-amount-20 disabled:text-muted aria-[current=page]:mix-amount-10 data-[state=open]:mix-amount-10 md:min-h-10 md:text-sm [&:not(:disabled):not(:active)]:hover:mix-amount-10 [&>*]:z-10',
+        'flex min-h-12 w-full items-center rounded-lg bg-mix-transparent px-4 py-2 text-start text-base outline-hidden transition-[background-color] duration-100 select-none mix-with-muted-foreground *:z-10 focus-visible:outline-hidden focus-visible:mix-amount-10% active:duration-0 active:mix-amount-20% disabled:text-muted aria-[current=page]:mix-amount-10% data-[state=open]:mix-amount-10% md:min-h-10 md:text-sm [&:not(:disabled):not(:active)]:hover:mix-amount-10%',
         className
       )}
     >
@@ -164,7 +164,7 @@ export const ListItemIcon = ({
   <Slot
     {...props}
     className={cn(
-      'me-6 text-lg text-muted-foreground last:me-0 last:ms-auto md:me-4 md:text-base',
+      'me-6 size-4.5 text-muted-foreground last:ms-auto last:me-0 md:me-4 md:text-base',
       className
     )}
   >
@@ -179,7 +179,7 @@ export const ListSubheader = ({
   <span
     {...props}
     className={cn(
-      'sticky top-0 z-20 inline-block w-full select-none p-2 text-sm font-medium text-muted-foreground md:text-xs',
+      'sticky top-0 z-20 inline-block w-full p-2 text-sm font-medium text-muted-foreground select-none md:text-xs',
       className
     )}
   />

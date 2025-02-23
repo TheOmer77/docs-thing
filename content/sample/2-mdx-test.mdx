@@ -10,12 +10,12 @@ export const Counter = () => {
 
   return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
+      <div className='bg-primary text-primary-foreground flex size-20 select-none items-center justify-center rounded-lg text-4xl font-bold'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium shadow-sm ring-offset-background transition-[background-color,opacity] bg-mix-background mix-with-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:mix-amount-20 disabled:pointer-events-none disabled:opacity-50 dark:bg-mix-neutral-800 hover:[&:not(:active):not(:disabled)]:mix-amount-10 [&:not(a)]:cursor-default [&>*]:z-10 [&>svg]:shrink-0 [&>svg]:text-base'
+        className='shadow-xs ring-offset-background bg-mix-background mix-with-muted-foreground focus-visible:outline-hidden focus-visible:ring-ring active:mix-amount-20% dark:bg-mix-neutral-800 hover:not-active:not-disabled:mix-amount-10% inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium transition-[background-color,opacity] *:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 active:duration-0 disabled:pointer-events-none disabled:opacity-50 [&:not(a)]:cursor-default [&>svg]:shrink-0 [&>svg]:text-base'
       >
         Increment
       </button>
@@ -35,12 +35,12 @@ const Counter = () => {
 
   return (
     <div className='flex w-full flex-col items-center gap-2'>
-      <div className='flex size-20 select-none items-center justify-center rounded-lg bg-primary text-4xl font-bold text-primary-foreground'>
+      <div className='bg-primary text-primary-foreground flex size-20 select-none items-center justify-center rounded-lg text-4xl font-bold'>
         {count}
       </div>
       <button
         onClick={() => setCount(prev => prev + 1)}
-        className='inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium shadow-sm ring-offset-background transition-[background-color,opacity] bg-mix-background mix-with-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:mix-amount-20 disabled:pointer-events-none disabled:opacity-50 dark:bg-mix-neutral-800 hover:[&:not(:active):not(:disabled)]:mix-amount-10 [&:not(a)]:cursor-default [&>*]:z-10 [&>svg]:shrink-0 [&>svg]:text-base'
+        className='shadow-xs ring-offset-background bg-mix-background mix-with-muted-foreground focus-visible:outline-hidden focus-visible:ring-ring active:mix-amount-20% dark:bg-mix-neutral-800 hover:not-active:not-disabled:mix-amount-10% inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border px-4 text-sm font-medium transition-[background-color,opacity] *:z-10 focus-visible:ring-2 focus-visible:ring-offset-2 active:duration-0 disabled:pointer-events-none disabled:opacity-50 [&:not(a)]:cursor-default [&>svg]:shrink-0 [&>svg]:text-base'
       >
         Increment
       </button>

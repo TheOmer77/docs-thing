@@ -7,6 +7,7 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { AlertOctagonIcon, InfoIcon } from 'lucide-react';
 
 import { Alert, AlertTitle } from '@/components/ui/alert';
@@ -43,8 +44,8 @@ export const MdxBlockquote = ({
 
   return alertType && alertPrefix ? (
     <Alert variant={alertType.variant} className='my-[1.25em]'>
-      {alertType.icon}
-      <AlertTitle className='my-0 -mt-1 leading-normal [&~*]:prose-sm [&+*]:mt-1 [&~:last-child]:mb-0'>
+      <Slot className='size-4'>{alertType.icon}</Slot>
+      <AlertTitle className='-mt-1 mb-0 leading-normal [&+*]:mt-1 [&~*]:prose-sm [&~:last-child]:mb-0'>
         {Children.toArray(firstChild?.props.children)[0]
           ?.toString()
           ?.slice(alertPrefix.length)}

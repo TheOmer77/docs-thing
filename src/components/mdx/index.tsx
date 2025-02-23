@@ -36,11 +36,11 @@ export const MDX = () => {
   return (
     <main
       className={cn(
-        `prose mx-auto w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] dark:prose-invert md:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))] print:max-w-none print:px-0`,
+        `mx-auto prose w-full max-w-[100vw] px-4 py-8 [print-color-adjust:exact] md:max-w-[min(calc(100vw-22rem),var(--container-2xl))] dark:prose-invert print:max-w-none print:px-0`,
         doc?.showSidebar && [
-          'md:col-start-2 lg:max-w-[min(calc(100vw-22rem),theme(maxWidth.2xl))]',
+          'md:col-start-2 lg:max-w-[min(calc(100vw-22rem),var(--container-2xl))]',
           !doc?.showToc &&
-            'xl:max-w-[min(calc(100vw-22rem),theme(maxWidth.3xl))]',
+            'xl:max-w-[min(calc(100vw-22rem),var(--container-3xl))]',
         ]
       )}
     >
@@ -52,7 +52,6 @@ export const MDX = () => {
             </h1>
           )}
           {doc.description && (
-            /* eslint-disable-next-line tailwindcss/no-custom-classname */
             <p className='lead -mt-8 mb-14'>{doc.description}</p>
           )}
         </>
