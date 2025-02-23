@@ -1,4 +1,8 @@
-@define-mixin theme-light {
+code.shiki,
+pre.shiki {
+  --shiki-background: var(--tw-prose-pre-bg);
+  --shiki-foreground: var(--tw-prose-pre-code);
+
   --shiki-token-changed: #9c7605;
   --shiki-token-comment: #6b7ca0;
   --shiki-token-constant: #9b04a4;
@@ -11,43 +15,19 @@
   --shiki-token-string: #0a9179;
   --shiki-token-string-expression: #046e77;
 }
-@define-mixin theme-dark {
-  --shiki-token-changed: #fec844;
-  --shiki-token-comment: #8898bb;
-  --shiki-token-constant: #f9b5fc;
-  --shiki-token-deleted: #fe9188;
-  --shiki-token-function: #91b3fe;
-  --shiki-token-inserted: #bfffc0;
-  --shiki-token-keyword: #ffc298;
-  --shiki-token-link: #9cdaff;
-  --shiki-token-parameter: #d4c7ff;
-  --shiki-token-string: #adffe8;
-  --shiki-token-string-expression: #bcf8ff;
-}
-
-code.shiki,
-pre.shiki {
-  --shiki-background: var(--tw-prose-pre-bg);
-  --shiki-foreground: var(--tw-prose-pre-code);
-
-  @mixin theme-light;
-}
-
 @media not print {
-  @media (prefers-color-scheme: dark) {
-    code.shiki,
-    pre.shiki {
-      @mixin theme-dark;
-    }
-  }
-
   [data-theme='dark'] code.shiki,
   [data-theme='dark'] pre.shiki {
-    @mixin theme-dark;
+    --shiki-token-changed: #fec844;
+    --shiki-token-comment: #8898bb;
+    --shiki-token-constant: #f9b5fc;
+    --shiki-token-deleted: #fe9188;
+    --shiki-token-function: #91b3fe;
+    --shiki-token-inserted: #bfffc0;
+    --shiki-token-keyword: #ffc298;
+    --shiki-token-link: #9cdaff;
+    --shiki-token-parameter: #d4c7ff;
+    --shiki-token-string: #adffe8;
+    --shiki-token-string-expression: #bcf8ff;
   }
-}
-
-[data-theme='light'] code.shiki,
-[data-theme='light'] pre.shiki {
-  @mixin theme-light;
 }
