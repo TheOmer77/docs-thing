@@ -17,7 +17,7 @@ const NotFoundPage = () => (
       href='/'
       className='group flex flex-row items-center text-sm font-medium hover:underline'
     >
-      <ArrowLeftIcon className='me-2 transition-transform group-hover:-translate-x-1' />
+      <ArrowLeftIcon className='me-2 size-4 transition-transform group-hover:-translate-x-1' />
       Return home
     </Link>
   </main>
