@@ -7,5 +7,6 @@
   "arrowParens": "avoid",
 
   "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/styles/index.css",
   "tailwindFunctions": ["clsx", "cn", "cva"]
 }
