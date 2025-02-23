@@ -1,9 +1,8 @@
 module.exports = {
   plugins: {
     'postcss-mixins': {},
-    tailwindcss: {},
+    '@tailwindcss/postcss': {},
     'postcss-hover-media-feature': {},
     'postcss-viewport-unit-fallback': {},
-    autoprefixer: {},
   },
 };
