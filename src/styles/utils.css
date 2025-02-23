@@ -2,7 +2,7 @@
   background-color: color-mix(
     in oklab,
     var(--tw-bg-mix-base),
-    var(--tw-bg-mix-with) var(--tw-bg-mix-amount, 0%)
+    var(--tw-bg-mix-with, transparent) var(--tw-bg-mix-amount, 0%)
   );
   /* prettier-ignore */
   --tw-bg-mix-base: --value(--color-*, [color], [*]);
