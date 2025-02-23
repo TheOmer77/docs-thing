@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @import './utils.css';
 
-@config '../../tailwind.config.ts';
 @plugin "@tailwindcss/typography";
+@config "../config/tailwind/typography.ts";
 
 @layer base {
   @define-mixin theme-light {
