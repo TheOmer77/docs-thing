@@ -2,7 +2,7 @@ import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 
 // importing '@/config/tailwind' doesn't work here
-import { animations, autofillOverride, bgMix } from './src/config/tailwind';
+import { animations, autofillOverride } from './src/config/tailwind';
 
 const shades = [50, ...[...Array(9).keys()].map(key => (key + 1) * 100), 950];
 
@@ -142,7 +142,7 @@ const config = {
       },
     },
   },
-  plugins: [animations, autofillOverride, bgMix, typography],
+  plugins: [animations, autofillOverride, typography],
 } satisfies Config;
 
 export default config;

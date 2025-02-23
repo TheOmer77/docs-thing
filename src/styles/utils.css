@@ -1,0 +1,17 @@
+@utility bg-mix-* {
+  background-color: color-mix(
+    in oklab,
+    var(--tw-bg-mix-base),
+    var(--tw-bg-mix-with) var(--tw-bg-mix-amount, 0%)
+  );
+  /* prettier-ignore */
+  --tw-bg-mix-base: --value(--color-*, [color], [*]);
+}
+@utility mix-with-* {
+  /* prettier-ignore */
+  --tw-bg-mix-with: --value(--color-*, [color], [*]);
+}
+@utility mix-amount-* {
+  /* prettier-ignore */
+  --tw-bg-mix-amount: --value(percentage, [percentage]);
+}
