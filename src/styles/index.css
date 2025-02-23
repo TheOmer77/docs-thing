@@ -140,7 +140,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-danger: var(--danger);
+  --color-danger: var(--danger-main);
   --color-danger-active: var(--danger-active);
   --color-danger-foreground: var(--danger-foreground);
   --color-border: var(--border);
