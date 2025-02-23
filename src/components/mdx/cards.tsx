@@ -27,7 +27,7 @@ export const Card = ({
   <CardRoot
     asChild
     className={cn(
-      'block h-auto items-start space-y-1.5 whitespace-normal p-4 no-underline bg-mix-card',
+      'block h-auto items-start space-y-1.5 bg-mix-card p-4 whitespace-normal no-underline',
       className
     )}
   >

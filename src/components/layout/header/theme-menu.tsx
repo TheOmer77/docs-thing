@@ -34,8 +34,8 @@ export const ThemeMenu = () => {
         <TooltipTrigger asChild>
           <DropdownMenuTrigger asChild disabled={!isClient}>
             <Button variant='flat' size='lg' icon className='md:size-10'>
-              <SunIcon className='rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0' />
-              <MoonIcon className='absolute rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100' />
+              <SunIcon className='scale-100 rotate-0 transition-transform dark:scale-0 dark:-rotate-90' />
+              <MoonIcon className='absolute scale-0 rotate-90 transition-transform dark:scale-100 dark:rotate-0' />
               <span className='sr-only'>Toggle theme</span>
             </Button>
           </DropdownMenuTrigger>

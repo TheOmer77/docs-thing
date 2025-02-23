@@ -22,7 +22,7 @@ export const ScrollBarScrollbar = ({
     // Override default style, which takes priority over classnames
     style={{ left: 'auto', right: 'auto', insetInlineEnd: 0, ...style }}
     className={cn(
-      'flex touch-none select-none transition-colors',
+      'flex touch-none transition-colors select-none',
       orientation === 'vertical' &&
         'h-full w-2.5 border-l border-l-transparent p-px',
       orientation === 'horizontal' &&

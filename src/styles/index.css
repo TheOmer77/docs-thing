@@ -148,7 +148,7 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  
+
   --color-primary: var(--primary-main);
   --color-primary-active: var(--primary-active);
   --color-primary-foreground: var(--primary-foreground);
@@ -177,6 +177,6 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground selection:bg-primary-500/30 overflow-x-hidden selection:text-inherit;
+    @apply overflow-x-hidden bg-background text-foreground selection:bg-primary-500/30 selection:text-inherit;
   }
 }
