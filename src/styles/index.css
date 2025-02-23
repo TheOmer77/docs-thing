@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
+@plugin "@tailwindcss/typography";
 
 @layer base {
   @define-mixin theme-light {
@@ -119,14 +120,16 @@
   }
 }
 
-[data-theme='light'] {
-  color-scheme: light;
-  @mixin theme-light;
-}
-@media not print {
-  [data-theme='dark'] {
-    color-scheme: dark;
-    @mixin theme-dark;
+@layer base {
+  [data-theme='light'] {
+    color-scheme: light;
+    @mixin theme-light;
+  }
+  @media not print {
+    [data-theme='dark'] {
+      color-scheme: dark;
+      @mixin theme-dark;
+    }
   }
 }
 
@@ -138,7 +141,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply overflow-x-hidden bg-background text-foreground selection:bg-primary-500/30 selection:text-inherit;
+    @apply bg-background text-foreground selection:bg-primary-500/30 overflow-x-hidden selection:text-inherit;
   }
 }
 .lucide {
