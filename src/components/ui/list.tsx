@@ -97,7 +97,7 @@ export const ListItem = ({
       {...props}
       disabled={disabled}
       className={cn(
-        'flex min-h-12 w-full items-center rounded-lg bg-mix-transparent px-4 py-2 text-start text-base outline-hidden transition-[background-color] duration-100 select-none mix-with-muted-foreground *:z-10 focus-visible:outline-hidden focus-visible:mix-amount-10% active:duration-0 active:mix-amount-20% disabled:text-muted aria-[current=page]:mix-amount-10% data-[state=open]:mix-amount-10% md:min-h-10 md:text-sm [&:not(:disabled):not(:active)]:hover:mix-amount-10%',
+        'flex min-h-12 w-full items-center rounded-lg bg-mix-transparent px-4 py-2 text-start text-base transition-[background-color] duration-100 outline-none select-none mix-with-muted-foreground *:z-10 focus-visible:outline-none focus-visible:mix-amount-10% active:duration-0 active:mix-amount-20% disabled:text-muted aria-[current=page]:mix-amount-10% data-[state=open]:mix-amount-10% md:min-h-10 md:text-sm [&:not(:disabled):not(:active)]:hover:mix-amount-10%',
         className
       )}
     >

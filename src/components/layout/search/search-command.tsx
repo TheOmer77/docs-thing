@@ -16,7 +16,7 @@ export const SearchCommand = ({
       <SearchIcon className='absolute start-4 me-2 size-4 shrink-0 text-muted-foreground' />
       <CommandInput
         placeholder='Search docs...'
-        className='flex h-12 w-full rounded-lg bg-transparent px-3 ps-10 text-base text-foreground outline-hidden placeholder:text-muted-foreground md:text-sm'
+        className='flex h-12 w-full rounded-lg bg-transparent px-3 ps-10 text-base text-foreground outline-none placeholder:text-muted-foreground md:text-sm'
       />
     </div>
     <ScrollArea className='max-h-80 overflow-x-hidden overflow-y-auto [direction:inherit] md:max-h-96'>

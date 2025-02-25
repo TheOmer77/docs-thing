@@ -12,7 +12,7 @@ export const SearchBoxButton = ({
     {...props}
     disabled={disabled}
     className={cn(
-      'group me-2 flex h-9 w-64 flex-row items-center justify-start gap-2 rounded-lg bg-mix-card px-3 text-start text-sm text-muted-foreground ring-offset-background transition-colors select-none mix-with-muted-foreground *:z-10 hover:mix-amount-10% focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-hidden focus-visible:mix-amount-10% active:duration-0 active:mix-amount-20% disabled:pointer-events-none disabled:opacity-50 [&>svg]:size-4',
+      'group me-2 flex h-9 w-64 flex-row items-center justify-start gap-2 rounded-lg bg-mix-card px-3 text-start text-sm text-muted-foreground ring-offset-background transition-colors select-none mix-with-muted-foreground *:z-10 hover:mix-amount-10% focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none focus-visible:mix-amount-10% active:duration-0 active:mix-amount-20% disabled:pointer-events-none disabled:opacity-50 [&>svg]:size-4',
       className
     )}
     aria-label='Search docs'
