@@ -7,7 +7,6 @@ import { Provider } from '@/components/layout/provider';
 import { config } from '@/constants/docs';
 
 import '@/styles/index.css';
-import '@/styles/shiki.css';
 
 const font = Figtree({
   subsets: ['latin'],
