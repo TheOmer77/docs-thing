@@ -11,7 +11,7 @@ export const Card = ({ asChild, className, ...props }: CardProps) => {
     <Comp
       {...props}
       className={cn(
-        'rounded-lg border bg-card text-card-foreground shadow-sm',
+        'rounded-lg border bg-card text-card-foreground shadow-xs',
         className
       )}
     />
@@ -26,7 +26,7 @@ export const CardTitle = ({ className, ...props }: ComponentProps<'div'>) => (
   <div
     {...props}
     className={cn(
-      'text-2xl font-semibold leading-none tracking-tight',
+      'text-2xl leading-none font-semibold tracking-tight',
       className
     )}
   />

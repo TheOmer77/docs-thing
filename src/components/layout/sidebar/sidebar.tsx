@@ -22,7 +22,7 @@ const ListCategories = () => {
   return Object.entries(docsByCategory).map(([category, docs]) => (
     <Fragment key={category}>
       {category !== '_' && (
-        <ListSubheader className='bg-card group-data-[vaul-drawer]/drawer-content:bg-popover'>
+        <ListSubheader className='bg-card group-data-vaul-drawer/drawer-content:bg-popover'>
           {config.categories[category] || category}
         </ListSubheader>
       )}
@@ -95,7 +95,7 @@ export const Sidebar = () => {
   return (
     <>
       {doc?.showSidebar && (
-        <aside className='fixed top-0 z-10 hidden w-[--sidebar-width] select-none flex-col self-start after:absolute after:end-0 after:top-0 after:-z-10 after:h-screen after:w-screen after:bg-card md:flex print:hidden'>
+        <aside className='fixed top-0 z-10 hidden w-(--sidebar-width) flex-col self-start select-none after:absolute after:end-0 after:top-0 after:-z-10 after:h-screen after:w-screen after:bg-card md:flex print:hidden'>
           <ScrollArea className='mt-16 flex max-h-[calc(100dvh-4rem)] flex-col gap-px overflow-y-auto rounded-lg'>
             <List className='px-2 pb-2'>
               <ListCategories />

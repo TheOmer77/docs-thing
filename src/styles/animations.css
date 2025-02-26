@@ -1,0 +1,107 @@
+@theme {
+  --ease-out: cubic-bezier(0.2, 1, 0.4, 1);
+
+  --animate-collapse-in: collapse-in 150ms var(--ease-in-out);
+  --animate-collapse-out: collapse-out 150ms var(--ease-in-out);
+  --animate-fade-in: fade-in 150ms var(--ease-in-out);
+  --animate-fade-out: fade-out 150ms var(--ease-in-out);
+  --animate-scale-x-in: scale-x-in 150ms var(--ease-in-out);
+  --animate-scale-y-in: scale-y-in 150ms var(--ease-in-out);
+  --animate-tooltip-in: tooltip-in 150ms var(--ease-in-out);
+  --animate-zoom-in: zoom-in 300ms var(--ease-out);
+  --animate-zoom-out: zoom-out 300ms var(--ease-out);
+
+  @keyframes collapse-in {
+    from {
+      height: 0;
+      overflow: hidden;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      overflow: hidden;
+    }
+  }
+  @keyframes collapse-out {
+    from {
+      height: var(--radix-collapsible-content-height);
+      overflow: hidden;
+    }
+    to {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scale-x-in {
+    from {
+      opacity: 0;
+      transform: scaleX(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  @keyframes scale-y-in {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes tooltip-in {
+    from {
+      opacity: 0;
+      transform: translate(
+        var(--slide-translate-origin-x, 0),
+        var(--slide-translate-origin-y, 0)
+      );
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95, 0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes zoom-out {
+    from {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95, 0.95);
+    }
+  }
+}

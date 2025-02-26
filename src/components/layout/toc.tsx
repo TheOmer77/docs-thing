@@ -39,7 +39,7 @@ export const Toc = () => {
   );
 
   return (
-    <div className='sticky top-24 mt-8 hidden self-start pe-8 ps-4 xl:block print:hidden'>
+    <div className='sticky top-24 mt-8 hidden self-start ps-4 pe-8 xl:block print:hidden'>
       <h3 className='mb-4 font-bold'>On this page</h3>
       <ul
         className='space-y-2 text-sm'
@@ -48,7 +48,7 @@ export const Toc = () => {
         {doc?.headings.map(({ level, slug, text }) => (
           <li
             key={slug}
-            className='ps-[calc(theme(spacing.4)*(var(--level,1)-var(--lowest-level,1)))]'
+            className='ps-[calc(--spacing(4)*(var(--level,1)-var(--lowest-level,1)))]'
             style={{ '--level': level } as CSSProperties}
           >
             <a

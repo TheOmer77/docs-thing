@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
 const alertVariants = cva(
-  'relative w-full rounded-lg border p-4 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7',
+  'relative w-full rounded-lg border p-4 [&>svg]:absolute [&>svg]:top-4 [&>svg]:left-4 [&>svg]:text-foreground [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7',
   {
     variants: {
       variant: {
@@ -32,7 +32,7 @@ export const Alert = ({
 export const AlertTitle = ({ className, ...props }: ComponentProps<'p'>) => (
   <p
     {...props}
-    className={cn('text-base font-medium leading-none', className)}
+    className={cn('text-base leading-none font-medium', className)}
   />
 );
 

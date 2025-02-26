@@ -25,7 +25,7 @@ export const TooltipContent = ({
   <Content
     {...props}
     className={cn(
-      'z-[60] select-none rounded-lg bg-popover p-2 text-xs leading-none text-popover-foreground shadow-sm will-change-[transform,opacity] data-[state=closed]:animate-tooltip-out data-[state=delayed-open]:animate-tooltip-in data-[state=instant-open]:animate-tooltip-in data-[side=right]:[--slide-translate-origin-x:-2px] data-[side=left]:[--slide-translate-origin-x:2px] data-[side=bottom]:[--slide-translate-origin-y:-2px] data-[side=top]:[--slide-translate-origin-y:2px] print:hidden',
+      'z-60 rounded-lg bg-popover p-2 text-xs leading-none text-popover-foreground shadow-xs will-change-[transform,opacity] select-none data-[side=bottom]:[--slide-translate-origin-y:-2px] data-[side=left]:[--slide-translate-origin-x:2px] data-[side=right]:[--slide-translate-origin-x:-2px] data-[side=top]:[--slide-translate-origin-y:2px] data-[state=closed]:animate-fade-out data-[state=delayed-open]:animate-tooltip-in data-[state=instant-open]:animate-tooltip-in print:hidden',
       className
     )}
     sideOffset={SIDE_OFFSET}

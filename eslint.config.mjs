@@ -4,7 +4,6 @@ import prettier from 'eslint-config-prettier';
 import importX from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import tailwind from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -21,7 +20,6 @@ const config = tseslint.config(
   importX.flatConfigs.typescript,
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
-  ...tailwind.configs['flat/recommended'],
   prettier,
 
   checkFile,
@@ -34,7 +32,6 @@ const config = tseslint.config(
     plugins: { '@next/next': pluginNext, 'react-hooks': reactHooks },
     settings: {
       react: { version: 'detect' },
-      tailwindcss: { callees: ['clsx', 'cn', 'cva'] },
     },
     rules: {
       ...pluginNext.configs.recommended.rules,

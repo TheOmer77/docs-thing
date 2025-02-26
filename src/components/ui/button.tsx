@@ -5,14 +5,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-[background-color,opacity] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:duration-0 active:mix-amount-20 disabled:pointer-events-none disabled:opacity-50 hover:[&:not(:active):not(:disabled)]:mix-amount-10 [&:not(a)]:cursor-default [&>*]:z-10 [&>svg]:shrink-0 [&>svg]:text-base',
+  'inline-flex items-center justify-center rounded-md font-medium whitespace-nowrap ring-offset-background transition-[background-color,opacity] *:z-10 hover:not-active:not-disabled:mix-amount-10% focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none active:duration-0 active:mix-amount-20% disabled:pointer-events-none disabled:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0',
   {
     variants: {
       variant: {
         default:
-          'border shadow-sm bg-mix-background mix-with-muted-foreground dark:bg-mix-neutral-800',
+          'border bg-mix-background shadow-xs mix-with-muted-foreground dark:bg-mix-neutral-800',
         primary:
-          'text-primary-foreground shadow-sm shadow-primary/30 bg-mix-primary mix-with-primary-foreground',
+          'bg-mix-primary text-primary-foreground shadow-xs shadow-primary/30 mix-with-primary-foreground',
         flat: 'bg-mix-transparent mix-with-muted-foreground',
       },
       size: {
